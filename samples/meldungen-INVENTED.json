@@ -1,0 +1,13 @@
+{
+  "_note": "INVENTED SAMPLE. Not a real report. Written by hand to show the storage format of the Netlify Blobs store 'meldungen' (key 'alle'). No real report is in this repository.",
+  "alle": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "lat": 52.52000,
+      "lon": 13.40500,
+      "kategorie": "scherben",
+      "ts": 1767225600000,
+      "geraet": "beispiel-geraet-0001"
+    }
+  ]
+}

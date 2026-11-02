@@ -1,0 +1,10 @@
+{
+  "name": "Radzeugnis",
+  "short_name": "Radzeugnis",
+  "description": "Prüfung der Radverkehrsanlagen, Land Berlin (inoffiziell)",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#EEF0ED",
+  "theme_color": "#EEF0ED",
+  "icons": [{ "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }]
+}

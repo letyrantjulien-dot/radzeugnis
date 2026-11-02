@@ -1,0 +1,17 @@
+{
+  "name": "radzeugnis",
+  "version": "6.12.0",
+  "description": "Report card for Berlin's cycling network, graded against the Mobilitätsgesetz",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/meldungen.mjs --bundle --format=esm --platform=node --external:node:* --outfile=netlify/functions/meldungen.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.1.7"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

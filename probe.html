@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radzeugnis — WFS probe</title>
+<!-- Schriften liegen im Paket: keine Anfrage an Google, keine IP-Weitergabe (DSGVO) -->
+<style>
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<style>
+  :root{--papier:#EEF0ED;--tinte:#16222E;--schwach:#5A6672;--siegel:#2B4A9B;
+        --gruen:#1F9D55;--rot:#D0342C;--linie:#C9CEC8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:18px;
+       background:var(--papier);color:var(--tinte);padding:18px;line-height:1.45;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;
+     letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+  .amt{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--schwach);
+       margin-bottom:18px;}
+  button{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;
+         letter-spacing:.1em;text-transform:uppercase;background:var(--siegel);
+         color:var(--papier);border:none;padding:13px 20px;cursor:pointer;
+         width:100%;margin-bottom:14px;}
+  button:disabled{opacity:.5;}
+  pre{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.5;
+      background:#fff;border:1.5px solid var(--tinte);padding:12px;
+      white-space:pre-wrap;word-break:break-word;}
+  .ok{color:var(--gruen);font-weight:500;}
+  .bad{color:var(--rot);font-weight:500;}
+</style>
+</head>
+<body>
+<h1>WFS Probe</h1>
+<div class="amt">Radzeugnis · ground truth for the Senate data layers</div>
+<button id="los">Run all tests</button>
+<button id="fstr">Fahrradstraßen: was steht drin?</button>
+<button id="vz">Verkehrszeichen: gibt es 244.1?</button>
+<button id="osm">Fahrradstraßen aus OSM holen</button>
+<button id="verboten">Sperrliste aus OSM holen</button>
+<pre id="aus">Ready. Tap the button. Takes about a minute.</pre>
+
+<script>
+const aus = document.getElementById('aus');
+let text = '';
+function log(zeile, klasse){
+  text += (klasse ? `<span class="${klasse}">${zeile}</span>` : zeile) + '\n';
+  aus.innerHTML = text;
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+const DIENSTE = [
+  ['radverkehrsanlagen', 'https://gdi.berlin.de/services/wfs/radverkehrsanlagen'],
+  ['radverkehrsnetz',    'https://gdi.berlin.de/services/wfs/radverkehrsnetz'],
+  ['detailnetz',         'https://gdi.berlin.de/services/wfs/detailnetz'],
+  ['detailnetz_berlin',  'https://gdi.berlin.de/services/wfs/detailnetz_berlin'],
+  ['fahrradstrassen',    'https://gdi.berlin.de/services/wfs/fahrradstrassen']
+];
+
+async function typnamen(url){
+  const antwort = await fetch(url + '?service=WFS&request=GetCapabilities');
+  if(!antwort.ok) throw new Error('HTTP ' + antwort.status);
+  const xml = new DOMParser().parseFromString(await antwort.text(), 'text/xml');
+  const namen = [];
+  for(const ft of xml.getElementsByTagName('FeatureType')){
+    const n = ft.getElementsByTagName('Name')[0];
+    const t = ft.getElementsByTagName('Title')[0];
+    if(n) namen.push({name:n.textContent.trim(), titel: t ? t.textContent.trim() : ''});
+  }
+  if(!namen.length){
+    for(const ft of xml.getElementsByTagName('wfs:FeatureType')){
+      const n = ft.getElementsByTagName('wfs:Name')[0];
+      if(n) namen.push({name:n.textContent.trim(), titel:''});
+    }
+  }
+  return namen;
+}
+
+async function anzahl(url, typ){
+  const u = url + '?service=WFS&version=2.0.0&request=GetFeature'
+    + '&typenames=' + encodeURIComponent(typ) + '&resultType=hits';
+  const antwort = await fetch(u);
+  const t = await antwort.text();
+  const m = t.match(/numberMatched=["'](\d+)["']/) || t.match(/numberOfFeatures=["'](\d+)["']/);
+  return m ? +m[1] : null;
+}
+
+async function probeStichprobe(url, typ){
+  const u = url + '?service=WFS&version=2.0.0&request=GetFeature'
+    + '&typenames=' + encodeURIComponent(typ)
+    + '&count=3&outputFormat=application/json&srsName=EPSG:4326';
+  const antwort = await fetch(u);
+  const roh = await antwort.text();
+  if(!antwort.ok) throw new Error('HTTP ' + antwort.status + ' — ' + roh.slice(0,120));
+  let gj;
+  try{ gj = JSON.parse(roh); }
+  catch(e){ throw new Error('not JSON, first 160 chars: ' + roh.slice(0,160)); }
+  return gj;
+}
+
+// Gezielte Nachfrage: was steht wirklich in der Fahrradstraßen-Liste?
+document.getElementById('fstr').addEventListener('click', async () => {
+  text = '';
+  const url = 'https://gdi.berlin.de/services/wfs/fahrradstrassen';
+  const typ = 'fahrradstrassen:fahrradstrassen';
+  try{
+    const u = url + '?service=WFS&version=2.0.0&request=GetFeature'
+      + '&typenames=' + encodeURIComponent(typ)
+      + '&count=500&outputFormat=application/json&srsName=EPSG:4326';
+    const antwort = await fetch(u);
+    const gj = await antwort.json();
+    const f = gj.features || [];
+    log('Fahrradstraßen im amtlichen Datensatz: ' + f.length, 'ok');
+    let jahre = [];
+    const namen = [];
+    for(const x of f){
+      const p = x.properties || {};
+      if(p.freigabe) jahre.push(+p.freigabe);
+      namen.push([(p.strasse || '?'), (p.freigabe || '?'), (p.bezirk || '?'),
+                  (p.abschnitt || '')]);
+    }
+    jahre = jahre.filter(j => j > 1990).sort((a,b) => a-b);
+    if(jahre.length) log('Freigabejahre: ' + jahre[0] + ' bis ' + jahre[jahre.length-1]);
+    const jahrZahl = {};
+    for(const j of jahre) jahrZahl[j] = (jahrZahl[j] || 0) + 1;
+    log('pro Jahr: ' + Object.entries(jahrZahl).map(([j,n]) => j+':'+n).join('  '));
+    const treffer = namen.filter(n => /wall/i.test(n[0]));
+    log('');
+    log(treffer.length ? 'Wallstraße-Treffer:' : 'KEIN Eintrag mit "wall" im Namen', treffer.length ? 'ok' : 'bad');
+    for(const t of treffer) log('   ' + t.join(' · '));
+    log('');
+    log('══ vollständige Liste ══');
+    namen.sort((a,b) => String(a[0]).localeCompare(String(b[0])));
+    for(const n of namen) log('  ' + n[0] + '  [' + n[1] + ', ' + n[2] + ']  ' + n[3]);
+  }catch(e){ log('FEHLER: ' + e.message, 'bad'); }
+});
+
+// Verkehrszeichen: steht die Fahrradstraße (StVO 244.1) im amtlichen
+// Schilderbestand? Das wäre eine aktuelle Quelle statt der 2023er Liste.
+document.getElementById('vz').addEventListener('click', async () => {
+  text = '';
+  const url = 'https://gdi.berlin.de/services/wfs/radverkehrsanlagen';
+  const typ = 'radverkehrsanlagen:a_verkehrszeichen';
+  try{
+    log('Lade Verkehrszeichen …');
+    const alle = [];
+    for(let start = 0; ; start += 4000){
+      const u = url + '?service=WFS&version=2.0.0&request=GetFeature'
+        + '&typenames=' + encodeURIComponent(typ)
+        + '&count=4000&startIndex=' + start
+        + '&outputFormat=application/json&srsName=EPSG:4326';
+      const antwort = await fetch(u);
+      if(!antwort.ok) throw new Error('HTTP ' + antwort.status);
+      const gj = await antwort.json();
+      const f = gj.features || [];
+      for(const x of f) alle.push(x);
+      if(f.length < 4000) break;
+      if(start > 40000) break;
+    }
+    log('Verkehrszeichen insgesamt: ' + alle.length, 'ok');
+
+    const zaehl = {};
+    const fahrrad = [];
+    for(const x of alle){
+      const p = x.properties || {};
+      const nr = String(p.vznr == null ? '?' : p.vznr).trim();
+      zaehl[nr] = (zaehl[nr] || 0) + 1;
+      if(nr.indexOf('244') === 0) fahrrad.push(p);
+    }
+    log('');
+    log('══ Verteilung der Zeichennummern ══');
+    for(const [nr, n] of Object.entries(zaehl).sort((a,b) => b[1]-a[1])){
+      log('  ' + nr + ' : ' + n);
+    }
+    log('');
+    if(fahrrad.length){
+      log('Zeichen 244 (Fahrradstraße) gefunden: ' + fahrrad.length, 'ok');
+      log('Felder: ' + Object.keys(fahrrad[0]).join(', '));
+      const strassen = [...new Set(fahrrad.map(p => p.stst_str || '?'))].sort();
+      log('Betroffene Straßen: ' + strassen.length);
+      for(const n of strassen) log('  ' + n);
+      const wall = strassen.filter(n => /wall/i.test(n));
+      log('');
+      log(wall.length ? 'Wallstraße dabei: ' + wall.join(', ')
+                      : 'Wallstraße NICHT dabei', wall.length ? 'ok' : 'bad');
+    }else{
+      log('KEIN Zeichen 244 im Datensatz — Fahrradstraßen stehen hier nicht drin.', 'bad');
+    }
+  }catch(e){ log('FEHLER: ' + e.message, 'bad'); }
+});
+
+// Fahrradstraßen aus OSM holen: POST statt langer Adresszeile, mehrere
+// Spiegel nacheinander, Ergebnis direkt als fertige Datei zum Hochladen.
+const OSM_SPIEGEL = [
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass-api.de/api/interpreter',
+  'https://overpass.private.coffee/api/interpreter',
+  'https://overpass.osm.jp/api/interpreter',
+  'https://overpass.osm.ch/api/interpreter'
+];
+
+function ladeHerunter(name, inhalt){
+  const blob = new Blob([inhalt], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+}
+
+document.getElementById('osm').addEventListener('click', async () => {
+  text = '';
+  // Union: ohne Klammern ersetzt jede Anweisung die vorige, und nur die
+  // letzte landet in der Ausgabe.
+  const abfrage = '[out:json][timeout:180];('
+    + 'way[bicycle_road=yes](52.33,13.08,52.68,13.77);'
+    + 'way[cyclestreet=yes](52.33,13.08,52.68,13.77);'
+    + ');out geom;';
+  let daten = null;
+  for(const url of OSM_SPIEGEL){
+    log('Versuche ' + url.split('/')[2] + ' …');
+    try{
+      const antwort = await fetch(url, {
+        method:'POST',
+        headers:{'Content-Type':'text/plain'},
+        body: abfrage
+      });
+      if(!antwort.ok){ log('  HTTP ' + antwort.status, 'bad'); continue; }
+      const roh = await antwort.text();
+      if(roh.indexOf('"elements"') === -1){
+        log('  keine Daten: ' + roh.slice(0, 120), 'bad');
+        continue;
+      }
+      daten = JSON.parse(roh);
+      log('  Antwort erhalten', 'ok');
+      break;
+    }catch(e){ log('  ' + e.message, 'bad'); }
+  }
+  if(!daten){ log('Alle Spiegel fehlgeschlagen. Später erneut versuchen.', 'bad'); return; }
+
+  const rund = v => Math.round(v * 1e5) / 1e5;
+  const linien = [], namen = new Set();
+  let km = 0;
+  const hav = (a, b) => {
+    const R = 6371, r = Math.PI/180;
+    const dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
+    const x = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2;
+    return 2*R*Math.asin(Math.sqrt(x));
+  };
+  for(const el of (daten.elements || [])){
+    if(el.type !== 'way' || !el.geometry) continue;
+    const linie = el.geometry.map(p => [rund(p.lon), rund(p.lat)]);
+    if(linie.length < 2) continue;
+    for(let i=1;i<linie.length;i++) km += hav(linie[i-1], linie[i]);
+    linien.push(linie);
+    const n = (el.tags && el.tags.name) || null;
+    if(n) namen.add(n);
+  }
+  log('');
+  log('Wege: ' + linien.length + '  ·  Länge: ' + km.toFixed(1) + ' km', 'ok');
+  log('Verschiedene Straßennamen: ' + namen.size);
+  const liste = [...namen].sort();
+  const wall = liste.filter(n => /wall/i.test(n));
+  log(wall.length ? 'Wallstraße dabei: ' + wall.join(', ') : 'Wallstraße nicht dabei',
+      wall.length ? 'ok' : 'bad');
+  log('');
+  for(const n of liste) log('  ' + n);
+
+  ladeHerunter('fahrradstrassen.json',
+    JSON.stringify({linien, namen:liste}));
+  log('');
+  log('Datei fahrradstrassen.json wurde heruntergeladen.', 'ok');
+});
+
+// Sperrliste neu erzeugen: Wege, auf denen Radfahren nicht erlaubt ist.
+document.getElementById('verboten').addEventListener('click', async () => {
+  text = '';
+  const abfrage = '[out:json][timeout:180];('
+    + 'way[highway=motorway](52.33,13.08,52.68,13.77);'
+    + 'way[highway=motorway_link](52.33,13.08,52.68,13.77);'
+    + 'way[motorroad=yes](52.33,13.08,52.68,13.77);'
+    + 'way[tunnel][highway][bicycle=no](52.33,13.08,52.68,13.77);'
+    + ');out geom;';
+  let daten = null;
+  for(const url of OSM_SPIEGEL){
+    log('Versuche ' + url.split('/')[2] + ' …');
+    try{
+      const antwort = await fetch(url, {method:'POST',
+        headers:{'Content-Type':'text/plain'}, body: abfrage});
+      if(!antwort.ok){ log('  HTTP ' + antwort.status, 'bad'); continue; }
+      const roh = await antwort.text();
+      if(roh.indexOf('"elements"') === -1){ log('  ' + roh.slice(0,120), 'bad'); continue; }
+      daten = JSON.parse(roh);
+      log('  Antwort erhalten', 'ok');
+      break;
+    }catch(e){ log('  ' + e.message, 'bad'); }
+  }
+  if(!daten){ log('Alle Spiegel fehlgeschlagen.', 'bad'); return; }
+  const rund = v => Math.round(v * 1e5) / 1e5;
+  const linien = [];
+  for(const el of (daten.elements || [])){
+    if(el.type !== 'way' || !el.geometry) continue;
+    const l = el.geometry.map(p => [rund(p.lon), rund(p.lat)]);
+    if(l.length >= 2) linien.push(l);
+  }
+  log('Wege: ' + linien.length, 'ok');
+  ladeHerunter('verboten.json', JSON.stringify({
+    quelle:'OpenStreetMap (ODbL)', stand:new Date().toISOString().slice(0,10), linien}));
+  log('Datei verboten.json wurde heruntergeladen.', 'ok');
+});
+
+document.getElementById('los').addEventListener('click', async () => {
+  document.getElementById('los').disabled = true;
+  text = '';
+  for(const [kurz, url] of DIENSTE){
+    log('══ ' + kurz + ' ══');
+    let namen;
+    try{
+      namen = await typnamen(url);
+      log('  reachable, ' + namen.length + ' layer(s)', 'ok');
+      for(const n of namen) log('    typename: ' + n.name + (n.titel ? '   [' + n.titel + ']' : ''));
+    }catch(e){
+      log('  FAILED: ' + e.message, 'bad');
+      continue;
+    }
+    for(const n of namen){
+      try{
+        const c = await anzahl(url, n.name);
+        log('  ' + n.name + ' → ' + (c === null ? 'count unknown' : c + ' features'));
+      }catch(e){ log('  count failed: ' + e.message, 'bad'); }
+      try{
+        const gj = await probeStichprobe(url, n.name);
+        const f = gj.features && gj.features[0];
+        if(!f){ log('  GeoJSON ok but empty', 'bad'); continue; }
+        log('  GeoJSON works', 'ok');
+        log('  geometry: ' + f.geometry.type);
+        log('  attributes: ' + Object.keys(f.properties).join(', '));
+        const kurzWert = v => {
+          const s = String(v);
+          return s.length > 40 ? s.slice(0,40) + '…' : s;
+        };
+        for(const [k,v] of Object.entries(f.properties)){
+          if(v !== null && v !== '') log('     ' + k + ' = ' + kurzWert(v));
+        }
+        const c0 = f.geometry.coordinates;
+        const p0 = Array.isArray(c0[0][0]) ? c0[0][0] : c0[0];
+        log('  first coordinate: ' + JSON.stringify(p0));
+      }catch(e){ log('  sample failed: ' + e.message, 'bad'); }
+    }
+    log('');
+  }
+  log('══ done ══', 'ok');
+  document.getElementById('los').disabled = false;
+});
+</script>
+</body>
+</html>

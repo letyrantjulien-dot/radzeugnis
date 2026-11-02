@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Radzeugnis — Prüfung der Radverkehrsanlagen, Berlin</title>
+<meta name="description" content="Radzeugnis benotet Berlins Straßen nach dem Maßstab des Mobilitätsgesetzes: geschützt, aufgemalt oder fehlend.">
+<meta name="theme-color" content="#EEF0ED">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-512.png">
+<!-- Schriften liegen im Paket: keine Anfrage an Google, keine IP-Weitergabe (DSGVO) -->
+<style>
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Sans';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Sans';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<link rel="stylesheet" href="lib/maplibre-gl.css">
+<style>
+  :root{
+    --papier:#EEF0ED;
+    --tinte:#16222E;
+    --tinte-schwach:#5A6672;
+    --siegel:#2B4A9B;
+    --gruen:#1F9D55;
+    --orange:#E8850C;
+    --rot:#D0342C;
+    --grau:#9BA1A6;
+    --linie:#C9CEC8;
+    --fs-body:18.5px;
+    --fs-mono:14.5px;
+    --fs-title:25px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    font-size:var(--fs-body);
+    color:var(--tinte);
+    background:var(--papier);
+    overflow:hidden;
+  }
+  #map{position:fixed;inset:0;background:var(--papier);}
+
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    background:var(--papier);
+    border-bottom:2px solid var(--tinte);
+    padding:10px 16px 8px;
+    padding-top:calc(10px + env(safe-area-inset-top));
+    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  }
+  header h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:var(--fs-title);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  header .amt{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:var(--fs-mono);
+    color:var(--tinte-schwach);
+    letter-spacing:.04em;
+    flex:1;
+  }
+  #sprache{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:var(--fs-mono);
+    background:none;border:1px solid var(--tinte);
+    color:var(--tinte);
+    padding:4px 10px;cursor:pointer;
+    letter-spacing:.08em;
+  }
+  #sprache:focus-visible{outline:2px solid var(--siegel);outline-offset:2px;}
+
+  #status{
+    position:fixed;z-index:1000;
+    top:calc(var(--kopfHoehe, 92px) + 6px);
+    left:50%;transform:translateX(-50%);
+    background:var(--tinte);color:var(--papier);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:var(--fs-mono);
+    padding:7px 14px;
+    letter-spacing:.05em;
+    display:none;
+    max-width:92vw;text-align:center;
+    border:none;cursor:pointer;
+  }
+  #status.sichtbar{display:block;}
+
+  #zeugnis{
+    max-height:calc(100dvh - var(--kopfHoehe, 64px) - 10px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    position:fixed;z-index:1000;
+    left:12px;right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom));
+    max-width:520px;margin:0 auto;
+    background:var(--papier);
+    border:2px solid var(--tinte);
+    box-shadow:4px 4px 0 rgba(22,34,46,.18);
+  }
+  .werkzeuge{
+    position:sticky;top:0;z-index:5;
+    background:var(--papier);
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border-bottom:1px solid var(--linie);
+  }
+  .werkzeuge button{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:17px;
+    letter-spacing:.12em;text-transform:uppercase;
+    background:none;border:none;color:var(--tinte);
+    padding:10px 8px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .werkzeuge button + button{border-left:1px solid var(--linie);}
+  .werkzeuge button[aria-pressed="true"]{
+    background:var(--siegel);color:var(--papier);
+  }
+  #bezirke{
+    display:none;
+    flex-direction:column;
+    max-height:44vh;overflow-y:auto;
+    border-bottom:1px solid var(--linie);
+  }
+  #bezirke.sichtbar{display:flex;}
+  #zeugnis.bezirkeOffen #bezirke{max-height:none;}
+  #zeugnis.zu #bezirke{display:none;}
+  #zeugnis.bezirkeOffen .kopf,
+  #zeugnis.bezirkeOffen .inhalt{display:none;}
+  .bezZeile{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:6px 12px;align-items:center;
+    padding:9px 14px;
+    background:none;border:none;
+    border-bottom:1px solid var(--linie);
+    cursor:pointer;text-align:left;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .bezZeile:last-child{border-bottom:none;}
+  .bezZeile .name{font-size:16.5px;color:var(--tinte);}
+  .bezZeile .fehlt{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;color:var(--tinte-schwach);white-space:nowrap;
+  }
+  .bezZeile .kopfzeileBez{
+    display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  }
+  .balken{
+    display:flex;height:9px;width:100%;
+    background:var(--linie);
+    overflow:hidden;
+  }
+  .balken span{display:block;height:100%;}
+  .balken .bFahrrad{background:#35D97B;}
+  .balken .bGruen{background:var(--gruen);}
+  .balken .bOrange{background:var(--orange);}
+  .balken .bRot{background:var(--rot);}
+  .bezZeile .note{
+    grid-row:1 / span 2;grid-column:2;
+    width:29px;height:29px;
+    border:2px solid var(--siegel);border-radius:50%;
+    color:var(--siegel);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:17px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  #kategorien{
+    display:none;flex-wrap:wrap;gap:7px;
+    padding:10px 14px;
+    border-bottom:1px solid var(--linie);
+  }
+  #kategorien.sichtbar{display:flex;}
+  #kategorien button{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;
+    background:none;border:1.5px solid var(--tinte);
+    color:var(--tinte);
+    padding:6px 10px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  #kategorien button b{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:16px;margin-right:5px;
+  }
+  #kategorien button[aria-pressed="true"]{
+    background:var(--tinte);color:var(--papier);
+  }
+  #zeugnis .kopf{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:11px 16px;
+    border-bottom:1px solid var(--linie);
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  #zeugnis .kopf .titel{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:19px;
+    letter-spacing:.12em;text-transform:uppercase;
+  }
+  #zeugnis .kopf .pfeil{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:var(--fs-mono);color:var(--tinte-schwach);
+  }
+  #zeugnis .inhalt{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:10px 18px;
+    padding:16px 16px 16px;
+    align-items:center;
+  }
+  #zeugnis.zu .inhalt{display:none;}
+  #zeugnis.zu #kategorien{display:none;}
+  #zeugnis.zu #hierMelden{display:none;}
+
+  .legende{display:flex;flex-direction:column;gap:11px;}
+  .zeile{display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;}
+  .farbe{width:26px;height:8px;border-radius:2px;}
+  .legende .zeile[data-klasse]{cursor:pointer;
+    -webkit-tap-highlight-color:transparent;}
+  .legende .zeile.aus{opacity:.3;}
+  .legende .zeile.aus .farbe{background:var(--linie) !important;}
+  .farbe.fahrrad{background:#35D97B;}
+  .farbe.gruen{background:var(--gruen);}
+  .farbe.orange{background:var(--orange);}
+  .farbe.rot{background:var(--rot);}
+  .farbe.grau{background:var(--grau);}
+  .zeile .text{font-size:16.5px;line-height:1.25;}
+  .zeile .km{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:var(--fs-mono);
+    color:var(--tinte-schwach);
+    text-align:right;white-space:nowrap;
+  }
+
+  #belagKnopf{
+    display:none;
+    width:calc(100% - 28px);
+    margin:0 14px 12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14.5px;letter-spacing:.04em;
+    background:none;color:var(--tinte);
+    border:1.5px solid var(--tinte);
+    padding:11px 14px;cursor:pointer;
+    text-align:left;
+  }
+  #belagKnopf.sichtbar{display:block;}
+  #belagKnopf[aria-pressed="true"]{background:var(--tinte);color:var(--papier);}
+  #belagKnopf:disabled{opacity:.5;cursor:default;}
+  #zeugnis.zu #belagKnopf{display:none;}
+  #hierMelden{
+    display:none;
+    width:calc(100% - 28px);
+    margin:0 14px 12px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:19px;
+    letter-spacing:.1em;text-transform:uppercase;
+    background:var(--siegel);color:var(--papier);
+    border:none;padding:13px 14px;cursor:pointer;
+  }
+  #hierMelden.sichtbar{display:block;}
+  #hierMelden:disabled{opacity:.5;cursor:default;}
+  .chronMarker{
+    min-width:27px;height:27px;padding:0 5px;
+    background:var(--siegel);
+    border:2px solid var(--papier);
+    color:var(--papier);
+    box-shadow:2px 2px 0 rgba(22,34,46,.3);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:14px;letter-spacing:.04em;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+  }
+  #stempel{
+    width:118px;height:118px;
+    position:relative;
+    margin:8px 6px;
+    transform:rotate(-7deg);
+    opacity:.92;
+  }
+  #stempel svg{width:100%;height:100%;display:block;}
+  #stempel .thump{animation:thump .28s ease-out;}
+  @keyframes thump{
+    0%{transform:scale(1.35);opacity:0;}
+    70%{transform:scale(.97);opacity:1;}
+    100%{transform:scale(1);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #stempel .thump{animation:none;}
+  }
+
+  #routenInfo{
+    grid-column:1 / -1;
+    display:none;
+    flex-direction:column;gap:9px;
+    border-top:1px solid var(--linie);
+    padding-top:12px;
+  }
+  #routenInfo.sichtbar{display:flex;}
+  #routenKm{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15px;line-height:1.5;
+  }
+  #routenKm .punkt{font-size:17px;vertical-align:-1px;}
+  .schieberZeile{
+    display:grid;grid-template-columns:auto 1fr auto;
+    gap:10px;align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:var(--tinte-schwach);
+  }
+  #schieber{accent-color:var(--siegel);width:100%;}
+
+  #stadtKnopf{
+    grid-column:1 / -1;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:18px;
+    letter-spacing:.1em;text-transform:uppercase;
+    background:var(--siegel);color:var(--papier);
+    border:none;padding:11px 14px;cursor:pointer;
+    display:none;
+  }
+  #stadtKnopf.sichtbar{display:block;}
+  #stadtKnopf:disabled{opacity:.55;cursor:default;}
+  #stadtKnopf:focus-visible{outline:2px solid var(--tinte);outline-offset:2px;}
+  /* Standortpunkt in Siegelblau */
+  .maplibregl-user-location-dot,
+  .maplibregl-user-location-dot::before{background-color:#2B4A9B !important;}
+  .maplibregl-user-location-dot::after{border:2px solid #EEF0ED !important;}
+  .maplibregl-user-location-accuracy-circle{background-color:rgba(43,74,155,.18) !important;}
+
+  .fussnote{
+    grid-column:1 / -1;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;
+    color:var(--tinte-schwach);
+    border-top:1px solid var(--linie);
+    padding-top:10px;
+    line-height:1.45;
+  }
+  a{color:var(--siegel);}
+
+  /* MapLibre: Navigation unter der Kopfzeile, Quellenzeile unten
+     rechts mit Abstand über dem Zeugnis-Panel */
+  .maplibregl-ctrl-top-right{top:var(--kopfHoehe, 92px);}
+  .maplibregl-ctrl-bottom-right{
+    bottom:calc(var(--panelHoehe, 220px) + 20px + env(safe-area-inset-bottom));
+  }
+  .maplibregl-ctrl-attrib{
+    background:var(--papier) !important;
+    font-family:'IBM Plex Mono',monospace !important;
+    font-size:11px !important;color:var(--tinte-schwach) !important;
+    border:1px solid var(--linie);
+    padding:2px 6px !important;
+  }
+  .maplibregl-ctrl-group{
+    border-radius:0 !important;
+    border:1px solid var(--tinte) !important;
+    box-shadow:none !important;
+  }
+  .maplibregl-ctrl-group button{border-radius:0 !important;}
+  .maplibregl-popup-content{
+    background:var(--papier) !important;
+    border:1.5px solid var(--tinte);
+    border-radius:0 !important;
+    box-shadow:3px 3px 0 rgba(22,34,46,.18) !important;
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    padding:10px 24px 10px 12px !important;
+  }
+  .maplibregl-popup-close-button{font-size:18px;color:var(--tinte-schwach);}
+  /* Quellenzeile im Panel */
+  .quelle{
+    grid-column:1 / -1;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;
+    color:var(--tinte-schwach);
+    padding-top:2px;
+    display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;
+  }
+  .quelle a, .quelle button{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;
+    color:var(--siegel);
+    background:none;border:none;padding:0;
+    cursor:pointer;text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .quelle .punkt{color:var(--linie);}
+
+  /* Begrüßungsblätter */
+  #intro{
+    position:fixed;inset:0;z-index:3000;
+    background:rgba(22,34,46,.55);
+    display:flex;align-items:center;justify-content:center;
+    padding:16px;
+    padding-top:calc(16px + env(safe-area-inset-top));
+    padding-bottom:calc(16px + env(safe-area-inset-bottom));
+  }
+  #intro[hidden]{display:none;}
+  #introBlatt{
+    background:var(--papier);
+    border:2px solid var(--tinte);
+    box-shadow:6px 6px 0 rgba(22,34,46,.3);
+    max-width:520px;width:100%;
+    max-height:100%;
+    display:flex;flex-direction:column;
+  }
+  #introKopf{
+    border-bottom:2px solid var(--tinte);
+    padding:12px 18px 10px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  }
+  #introKopf .marke{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:23px;
+    letter-spacing:.14em;text-transform:uppercase;
+  }
+  #introKopf .blattNr{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;color:var(--tinte-schwach);
+    letter-spacing:.1em;white-space:nowrap;
+  }
+  #introInhalt{
+    padding:18px;
+    overflow-y:auto;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  #introInhalt h2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:25px;
+    letter-spacing:.1em;text-transform:uppercase;
+    line-height:1.1;
+  }
+  #introInhalt p{font-size:18.5px;line-height:1.45;}
+  #introInhalt .betont{
+    border-left:3px solid var(--siegel);
+    padding-left:12px;
+    font-style:italic;
+  }
+  .introFarben{display:flex;flex-direction:column;gap:10px;}
+  .introFarben .zeile{grid-template-columns:26px 1fr;}
+  .introFuss{
+    border-top:1px solid var(--linie);
+    padding:12px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .introFuss .punkte{display:flex;gap:7px;}
+  .introFuss .punkte i{
+    width:9px;height:9px;border:1.5px solid var(--tinte);
+    display:block;
+  }
+  .introFuss .punkte i.an{background:var(--tinte);}
+  .introFuss button{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:18px;
+    letter-spacing:.1em;text-transform:uppercase;
+    padding:10px 18px;cursor:pointer;
+  }
+  #introWeiter{background:var(--siegel);color:var(--papier);border:none;}
+  #introZurueck{background:none;border:1.5px solid var(--tinte);color:var(--tinte);}
+  #introZurueck[hidden]{display:none;}
+
+  .rahmenLabel{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;font-weight:500;
+    letter-spacing:.25em;color:var(--siegel);
+    white-space:nowrap;
+  }
+  .abMarker{
+    width:27px;height:27px;
+    background:var(--papier);
+    border:2px solid var(--tinte);
+    box-shadow:2px 2px 0 rgba(22,34,46,.25);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:17px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .meldMarker{
+    width:23px;height:23px;
+    background:var(--papier);
+    border:2px solid var(--siegel);
+    color:var(--siegel);
+    box-shadow:2px 2px 0 rgba(43,74,155,.25);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="map" role="application" aria-label="Karte der Radverkehrsanlagen"></div>
+
+<header>
+  <h1>Radzeugnis</h1>
+  <span class="amt" id="txtAmt"></span>
+  <button id="sprache" aria-label="Sprache wechseln / switch language"></button>
+</header>
+
+<button id="status" role="status"></button>
+
+<section id="zeugnis" aria-label="Zeugnis">
+  <div class="werkzeuge">
+    <button id="knopfBezirke" aria-pressed="false"></button>
+    <button id="knopfRoute" aria-pressed="false"></button>
+    <button id="knopfMelden" aria-pressed="false"></button>
+  </div>
+  <div id="bezirke"></div>
+  <div id="kategorien"></div>
+  <button id="hierMelden"></button>
+  <button id="belagKnopf" aria-pressed="false"></button>
+  <div class="kopf" id="zeugnisKopf" role="button" tabindex="0" aria-expanded="true">
+    <span class="titel" id="txtPanelTitel"></span>
+    <span class="pfeil" id="pfeil"></span>
+  </div>
+  <div class="inhalt">
+    <div class="legende">
+      <div class="zeile" data-klasse="fahrrad" role="button" tabindex="0">
+        <span class="farbe fahrrad"></span>
+        <span class="text" id="txtFahrrad"></span>
+        <span class="km" id="kmFahrrad">–</span>
+      </div>
+      <div class="zeile" data-klasse="gruen" role="button" tabindex="0">
+        <span class="farbe gruen"></span>
+        <span class="text" id="txtGruen"></span>
+        <span class="km" id="kmGruen">–</span>
+      </div>
+      <div class="zeile" data-klasse="orange" role="button" tabindex="0">
+        <span class="farbe orange"></span>
+        <span class="text" id="txtOrange"></span>
+        <span class="km" id="kmOrange">–</span>
+      </div>
+      <div class="zeile" data-klasse="rot" role="button" tabindex="0">
+        <span class="farbe rot"></span>
+        <span class="text" id="txtRot"></span>
+        <span class="km" id="kmRot">–</span>
+      </div>
+      <div class="zeile" data-klasse="grau" role="button" tabindex="0">
+        <span class="farbe grau"></span>
+        <span class="text" id="txtGrau"></span>
+        <span class="km" id="kmGrau">–</span>
+      </div>
+    </div>
+
+    <div id="stempel" aria-live="polite">
+      <svg viewBox="0 0 120 120" id="stempelSvg">
+        <defs>
+          <path id="kreisbahn" d="M 60,60 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"/>
+        </defs>
+        <g id="stempelInhalt">
+          <circle cx="60" cy="60" r="58" fill="none" stroke="#2B4A9B" stroke-width="2"/>
+          <circle cx="60" cy="60" r="45.5" fill="none" stroke="#2B4A9B" stroke-width="1"/>
+          <text font-family="'Barlow Condensed',sans-serif" font-size="9.2" font-weight="600" fill="#2B4A9B" letter-spacing="2.2">
+            <textPath href="#kreisbahn">LAND BERLIN · RADZEUGNIS · MOBG § 43 ·</textPath>
+          </text>
+          <text id="noteZahl" x="60" y="70" text-anchor="middle"
+                font-family="'Barlow Condensed',sans-serif" font-weight="700"
+                font-size="42" fill="#2B4A9B">–</text>
+          <text id="noteWort" x="60" y="86" text-anchor="middle"
+                font-family="'IBM Plex Mono',monospace" font-size="8.5"
+                fill="#2B4A9B" letter-spacing="1"></text>
+        </g>
+      </svg>
+    </div>
+
+    <div id="routenInfo">
+      <div id="routenKm"></div>
+      <div class="schieberZeile">
+        <span id="txtKurz"></span>
+        <input type="range" id="schieber" min="0" max="100" value="60"
+               aria-label="Umweg für Sicherheit / detour for safety">
+        <span id="txtSicher"></span>
+      </div>
+    </div>
+
+    <button id="stadtKnopf"></button>
+
+    <div class="fussnote" id="txtFussnote"></div>
+
+    <div class="quelle">
+      <button id="lnkUeber" type="button"></button>
+      <span class="punkt">·</span>
+      <a id="lnkHub" href="https://invisiblechaos.netlify.app"
+         target="_blank" rel="noopener">InvisibleChaos</a>
+      <span class="punkt">·</span>
+      <a id="lnkEthos" href="https://invisiblechaos.netlify.app/ethos.html"
+         target="_blank" rel="noopener">Ethos</a>
+      <span class="punkt">·</span>
+      <a id="lnkImpressum" href="https://invisiblechaos.netlify.app/impressum.html"
+         target="_blank" rel="noopener">Impressum</a>
+      <span class="punkt">·</span>
+      <a id="lnkDatenschutz" href="https://invisiblechaos.netlify.app/datenschutz.html"
+         target="_blank" rel="noopener">Datenschutz</a>
+      <span class="punkt">·</span>
+      <a id="lnkKofi" href="https://ko-fi.com/invisiblechaos"
+         target="_blank" rel="noopener"></a>
+      <span class="punkt">·</span>
+      <span id="txtVersion"></span>
+    </div>
+  </div>
+</section>
+
+<div id="intro" hidden>
+  <div id="introBlatt" role="dialog" aria-modal="true" aria-labelledby="introTitel">
+    <div id="introKopf">
+      <span class="marke">Radzeugnis</span>
+      <span class="blattNr" id="introBlattNr"></span>
+    </div>
+    <div id="introInhalt"></div>
+    <div class="introFuss">
+      <button id="introZurueck" type="button"></button>
+      <span class="punkte" id="introPunkte" aria-hidden="true"></span>
+      <button id="introWeiter" type="button"></button>
+    </div>
+  </div>
+</div>
+
+<script src="lib/maplibre-gl.js"></script>
+<script>
+/* ════════════════════════════════════════════════════════════════
+   RADZEUGNIS v4.0 — amtliche Datengrundlage
+   Kein Overpass mehr. Drei Datensätze des Landes Berlin (dl-de-zero):
+   · radverkehrsnetz  — wo das Mobilitätsgesetz Radverkehrsanlagen verlangt
+   · radverkehrsanlagen — was tatsächlich gebaut ist
+   · detailnetz       — das vollständige Straßennetz (Routing, Nebenstraßen)
+   Verknüpft werden sie über die gemeinsame Element-Nummer, nicht über
+   Geometrie: elem_nr = segm_segm = element_nr.
+   ════════════════════════════════════════════════════════════════ */
+
+const VERSION = 'v6.12.0';
+
+/* ── i18n ────────────────────────────────────────────────────── */
+const TEXTE = {
+  de: {
+    amt:'Prüfung der Radverkehrsanlagen · Land Berlin (inoffiziell)',
+    panelTitel:'Zeugnis für diesen Ausschnitt',
+    panelTitelStadt:'Zeugnis für Berlin',
+    einklappen:'▾ einklappen', ausklappen:'▸ ausklappen',
+    fahrrad:'Fahrradstraße, Vorrang fürs Rad',
+    gruen:'Baulich getrennter Radweg',
+    orange:'Nur Markierung',
+    rot:'Pflicht laut MobG — fehlt',
+    grau:'Straße ohne Netzpflicht',
+    grauStadt:'Straßennetz: nicht geladen',
+    fussnote:'Daten: Geoportal Berlin (Radverkehrsnetz, Radverkehrsanlagen, Detailnetz), dl-de/zero-2.0. Maßstab: Berliner Mobilitätsgesetz. Gestrichelt: Landesgrenze.',
+    ladenKnopf:'Amtliche Daten laden (einmalig)',
+    ladenNetz:(n)=>`Lade Radverkehrsnetz … ${n} Abschnitte`,
+    ladenAnlagen:(n)=>`Lade Radverkehrsanlagen … ${n} Einträge`,
+    ladenStrassen:(n)=>`Lade Straßennetz … ${n} Abschnitte`,
+    ladenFertig:'Amtliche Daten geladen. Ab jetzt ohne Netz.',
+    pruefenKnopf:'Auf neuen Datenstand prüfen',
+    pruefeLaeuft:'Prüfe Datenstand …',
+    standAktuell:'Datenstand ist aktuell.',
+    standNeu:'Neuer amtlicher Datenstand. Antippen zum Aktualisieren.',
+    standFehler:'Prüfung nicht möglich.',
+    standDatum:(d)=>`Datenstand: ${d}`,
+    ladenFehler:'Laden fehlgeschlagen. Antippen zum Wiederholen.',
+    strassenKnopf:'Straßennetz laden (für Routen)',
+    unbenotet:'unbenotet',
+    unvollstaendig:'unvollständig',
+    noten:{'1':'sehr gut','2':'gut','3':'befriedigend','4':'ausreichend','5':'mangelhaft','6':'ungenügend'},
+    popup:{
+      fahrrad:'Fahrradstraße: das Rad hat Vorrang, Autos sind Gast',
+      gruen:'Baulich getrennter Radweg',
+      orange:'Markierung auf der Fahrbahn',
+      rot:'Radverkehrsanlage fehlt — Pflicht laut Mobilitätsgesetz',
+      grau:'Straße außerhalb des Radverkehrsnetzes'
+    },
+    vorrang:'Radvorrangnetz',
+    route:'Route', melden:'Melden', bezirke:'Bezirke',
+    bezOhne:'ohne Anlage',
+    bezBrauchtDaten:'Zuerst die amtlichen Daten laden.',
+    routeStart:'Startpunkt antippen',
+    routeStandort:'Start: dein Standort. Jetzt Ziel antippen.',
+    routeStandortNeu:'Start versetzt. Ziel antippen.',
+    routeZiel:'Ziel antippen',
+    routeRechnet:'Route wird berechnet …',
+    routeKeine:'Keine Route gefunden.',
+    routeBrauchtNetz:'Für Routen zuerst das Straßennetz laden.',
+    kurz:'kurz', sicher:'sicher',
+    belagAus:'☐  Rauen Belag meiden',
+    belagAn:'☑  Rauen Belag meiden',
+    belagLaedt:'Belagsdaten werden geladen …',
+    belagKachel:(n,m)=>`Belagsdaten … Abschnitt ${n} von ${m}`,
+    belagZuordnung:(p)=>`Belag wird zugeordnet … ${p} %`,
+    verbotenZuordnung:(p)=>`Gesperrte Strecken werden zugeordnet … ${p} %`,
+    belagFehler:'Belagsdaten nicht verfügbar.',
+    belagFertig:(n)=>`Belagsdaten geladen: ${n} raue Abschnitte.`,
+    meldenOrt:'Kategorie gewählt. Jetzt „Hier melden“ antippen.',
+    hierMelden:'Hier melden',
+    ortungLaeuft:'Standort wird bestimmt …',
+    ortungFehlt:'Kein Standort. Ortung im Browser erlauben.',
+    ortungUngenau:'Standort zu ungenau. Im Freien kurz warten.',
+    ausserhalb:'Außerhalb von Berlin.',
+    zuSchnell:'Zu kurz nach der letzten Meldung.',
+    meldenNurVorOrt:'Gemeldet wird am Ort selbst, nicht auf der Karte.',
+    chronisch:(n)=>`${n}× gemeldet`,
+    modFrage:'Moderationsschlüssel',
+    modAn:'Moderation aktiv',
+    modAus:'Moderation beendet',
+    modLoeschen:'Löschen',
+    modStelle:'Stelle löschen',
+    modWeg:'Gelöscht.',
+    modFehler:'Löschen fehlgeschlagen.',
+    seit:'seit',
+    meldenKategorie:'Kategorie wählen',
+    meldenDanke:'Meldung gespeichert. Danke.',
+    meldenFehler:'Meldung fehlgeschlagen — später erneut versuchen.',
+    kategorien:{zugeparkt:'Zugeparkt', belag:'Belag kaputt', scherben:'Scherben',
+                kreuzung:'Gefährliche Kreuzung', endet:'Radweg endet'},
+    pruefgebiet:'PRÜFGEBIET',
+    hub:'Eine Station von InvisibleChaos',
+    kofi:'Energie senden',
+    ueber:'Über',
+    lizenzTitel:'Herkunft und Lizenzen',
+    lizenzen:[
+      ['Amtliche Daten (Radverkehrsnetz, Radverkehrsanlagen, Detailnetz)',
+       'Geoportal Berlin, Datenlizenz Deutschland Zero 2.0'],
+      ['Landesgrenze',
+       'Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE'],
+      ['Fahrradstraßen, Belagsdaten und gesperrte Strecken',
+       'OpenStreetMap-Mitwirkende, Open Database License (ODbL) 1.0'],
+      ['Kartengrundlage',
+       'OpenFreeMap, OpenMapTiles, Daten von OpenStreetMap (ODbL 1.0)'],
+      ['Kartenbibliothek', 'MapLibre GL JS 4.7.1, BSD 3-Clause (Lizenztext unter lib/)'],
+      ['Schriften', 'Barlow Condensed, IBM Plex Sans, IBM Plex Mono, SIL Open Font License 1.1'],
+      ['Speicher für Meldungen', '@netlify/blobs, MIT']
+    ],
+    blattNr:(n,m)=>`Blatt ${n} von ${m}`,
+    weiter:'Weiter', losGehts:'Losfahren', zurueck:'Zurück',
+    dezimal:','
+  },
+  en: {
+    amt:'Cycling infrastructure audit · State of Berlin (unofficial)',
+    panelTitel:'Report card for this view',
+    panelTitelStadt:'Report card for Berlin',
+    einklappen:'▾ collapse', ausklappen:'▸ expand',
+    fahrrad:'Bicycle street, bikes have priority',
+    gruen:'Separated cycle track',
+    orange:'Markings only',
+    rot:'Required by law — missing',
+    grau:'Street outside the required network',
+    grauStadt:'Street network: not loaded',
+    fussnote:'Data: Geoportal Berlin (cycling network, cycling facilities, street network), dl-de/zero-2.0. Standard: the Berlin Mobility Act. Dashed: state boundary.',
+    ladenKnopf:'Load official data (one-time)',
+    ladenNetz:(n)=>`Loading cycling network … ${n} segments`,
+    ladenAnlagen:(n)=>`Loading cycling facilities … ${n} records`,
+    ladenStrassen:(n)=>`Loading street network … ${n} segments`,
+    ladenFertig:'Official data loaded. No network needed from now on.',
+    pruefenKnopf:'Check for new official data',
+    pruefeLaeuft:'Checking for updates …',
+    standAktuell:'Data is up to date.',
+    standNeu:'New official data available. Tap to update.',
+    standFehler:'Check not possible.',
+    standDatum:(d)=>`Data as of ${d}`,
+    ladenFehler:'Loading failed. Tap to retry.',
+    strassenKnopf:'Load street network (for routing)',
+    unbenotet:'ungraded',
+    unvollstaendig:'incomplete',
+    noten:{'1':'very good','2':'good','3':'satisfactory','4':'sufficient','5':'poor','6':'failing'},
+    popup:{
+      fahrrad:'Bicycle street: bikes have priority, cars are guests',
+      gruen:'Physically separated cycle track',
+      orange:'Markings on the carriageway',
+      rot:'Cycling infrastructure missing — required by the Mobility Act',
+      grau:'Street outside the required cycling network'
+    },
+    vorrang:'Priority network',
+    route:'Route', melden:'Report', bezirke:'Districts',
+    bezOhne:'without facilities',
+    bezBrauchtDaten:'Load the official data first.',
+    routeStart:'Tap the start point',
+    routeStandort:'Start: your location. Now tap the destination.',
+    routeStandortNeu:'Start moved. Tap the destination.',
+    routeZiel:'Tap the destination',
+    routeRechnet:'Computing route …',
+    routeKeine:'No route found.',
+    routeBrauchtNetz:'Load the street network first to compute routes.',
+    kurz:'short', sicher:'safe',
+    belagAus:'☐  Avoid rough surfaces',
+    belagAn:'☑  Avoid rough surfaces',
+    belagLaedt:'Loading surface data …',
+    belagKachel:(n,m)=>`Surface data … section ${n} of ${m}`,
+    belagZuordnung:(p)=>`Matching surfaces … ${p} %`,
+    verbotenZuordnung:(p)=>`Matching restricted roads … ${p} %`,
+    belagFehler:'Surface data unavailable.',
+    belagFertig:(n)=>`Surface data loaded: ${n} rough segments.`,
+    meldenOrt:'Category set. Now tap “Report here”.',
+    hierMelden:'Report here',
+    ortungLaeuft:'Getting your location …',
+    ortungFehlt:'No location. Allow location access in the browser.',
+    ortungUngenau:'Location too imprecise. Wait a moment outdoors.',
+    ausserhalb:'Outside Berlin.',
+    zuSchnell:'Too soon after your last report.',
+    meldenNurVorOrt:'Reports are filed on the spot, not on the map.',
+    chronisch:(n)=>`reported ${n}×`,
+    modFrage:'Moderation key',
+    modAn:'Moderation active',
+    modAus:'Moderation ended',
+    modLoeschen:'Delete',
+    modStelle:'Delete this spot',
+    modWeg:'Deleted.',
+    modFehler:'Deletion failed.',
+    seit:'since',
+    meldenKategorie:'Pick a category',
+    meldenDanke:'Report saved. Thank you.',
+    meldenFehler:'Report failed — please try again later.',
+    kategorien:{zugeparkt:'Blocked by cars', belag:'Broken surface', scherben:'Glass/debris',
+                kreuzung:'Dangerous crossing', endet:'Lane ends'},
+    pruefgebiet:'AUDIT AREA',
+    hub:'A station of InvisibleChaos',
+    kofi:'Send energy',
+    ueber:'About',
+    lizenzTitel:'Sources and licences',
+    lizenzen:[
+      ['Official data (cycling network, cycling facilities, street network)',
+       'Geoportal Berlin, Datenlizenz Deutschland Zero 2.0'],
+      ['State boundary',
+       'Amt für Statistik Berlin-Brandenburg, CC BY 3.0 DE'],
+      ['Bicycle streets, surface data and restricted roads',
+       'OpenStreetMap contributors, Open Database License (ODbL) 1.0'],
+      ['Base map',
+       'OpenFreeMap, OpenMapTiles, data from OpenStreetMap (ODbL 1.0)'],
+      ['Map library', 'MapLibre GL JS 4.7.1, BSD 3-Clause (licence text in lib/)'],
+      ['Typefaces', 'Barlow Condensed, IBM Plex Sans, IBM Plex Mono, SIL Open Font License 1.1'],
+      ['Storage for reports', '@netlify/blobs, MIT']
+    ],
+    blattNr:(n,m)=>`Sheet ${n} of ${m}`,
+    weiter:'Next', losGehts:'Start riding', zurueck:'Back',
+    dezimal:'.'
+  }
+};
+
+const INTRO = {
+  de: [
+    {titel:'Ein Zeugnis für Berlin', bloecke:[
+      {art:'p', text:'Berlin hat sich ein Mobilitätsgesetz gegeben. Es legt ein Radverkehrsnetz fest, auf dem sichere Radverkehrsanlagen gehören. Diese App vergleicht dieses Soll mit dem Bestand, beides aus den amtlichen Daten des Landes Berlin.'},
+      {art:'farben'},
+      {art:'p', text:'Der Stempel benotet immer genau das, was gerade im Bild steht, von 1 bis 6. Reine Markierungen zählen nur zur Hälfte, denn Farbe auf Asphalt schützt niemanden.'}
+    ]},
+    {titel:'Route und Meldung', bloecke:[
+      {art:'p', text:'Route: der Start ist dein Standort, das Ziel tippst du an. Ein langer Druck auf die Karte setzt einen anderen Start. Der Regler zwischen kurz und sicher entscheidet, wie viel Umweg dir Sicherheit wert ist. Gerechnet wird auf deinem Gerät.'},
+      {art:'p', text:'Melden: eine der fünf Kategorien wählen, dann die Stelle antippen. Kein Freitext, keine Namen, nur Ort und Art des Problems. Alle sehen die Meldungen.'},
+      {art:'betont', text:'Die Daten werden einmal geladen und bleiben auf dem Gerät. Danach läuft alles ohne Netz.'}
+    ]},
+    {titel:'Wozu das Ganze', bloecke:[
+      {art:'p', text:'Jeder rote Abschnitt ist keine Meinung, sondern eine offene Rechnung: Das Land hat ihn selbst ins Radverkehrsnetz aufgenommen, gebaut ist dort nichts.'},
+      {art:'p', text:'Die Karte ist deshalb zweierlei. Ein Werkzeug für die tägliche Fahrt und ein Beleg für das Gespräch mit dem Senat. Wird gebaut, färbt sich der Abschnitt beim nächsten Datenstand von selbst grün.'},
+      {art:'betont', text:'Quelle: Geoportal Berlin, Datenlizenz Deutschland Zero 2.0. Bewertet wird die Art der Anlage, nicht ihre Qualität vor Ort.'}
+    ]}
+  ],
+  en: [
+    {titel:'A report card for Berlin', bloecke:[
+      {art:'p', text:'Berlin gave itself a Mobility Act. It defines a cycling network that is supposed to carry safe infrastructure. This app compares that requirement with what was actually built, both taken from the state of Berlin official data.'},
+      {art:'farben'},
+      {art:'p', text:'The stamp always grades exactly what is on screen, from 1 to 6. Markings alone count only half, because paint on asphalt protects nobody.'}
+    ]},
+    {titel:'Route and report', bloecke:[
+      {art:'p', text:'Route: the start is your own location, you tap the destination. A long press on the map sets a different start. The slider between short and safe decides how much detour safety is worth to you. Everything is computed on your device.'},
+      {art:'p', text:'Report: pick one of the five categories, then tap the spot. No free text, no names, only the place and the kind of problem. Everyone sees the reports.'},
+      {art:'betont', text:'The data is downloaded once and stays on your device. After that everything works offline.'}
+    ]},
+    {titel:'What it is for', bloecke:[
+      {art:'p', text:'Every red segment is not an opinion but an open account: the state itself put it on the cycling network, and nothing was built there.'},
+      {art:'p', text:'So the map is two things at once. A tool for the daily ride and evidence for the conversation with the Senate. Build the lane, and the segment turns green with the next data release.'},
+      {art:'betont', text:'Source: Geoportal Berlin, Datenlizenz Deutschland Zero 2.0. What is graded is the type of facility, not its condition on the ground.'}
+    ]}
+  ]
+};
+
+const KAT_BUCHSTABE = {zugeparkt:'Z', belag:'B', scherben:'S', kreuzung:'K', endet:'E'};
+let SPRACHE = localStorage.getItem('radzeugnis-lang')
+  || (navigator.language && navigator.language.startsWith('de') ? 'de' : 'en');
+const T = () => TEXTE[SPRACHE];
+
+/* ── IndexedDB ───────────────────────────────────────────────── */
+const DB_NAME = 'radzeugnis', DB_VERSION = 3;
+let dbPromise = null;
+function oeffneDb(){
+  if(dbPromise) return dbPromise;
+  dbPromise = new Promise((res) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      for(const laden of ['zellen','stadt','neben','amt']){
+        if(!db.objectStoreNames.contains(laden)) db.createObjectStore(laden);
+      }
+    };
+    req.onsuccess = () => res(req.result);
+    req.onerror = () => res(null);
+  });
+  return dbPromise;
+}
+async function dbLies(store, key){
+  const db = await oeffneDb(); if(!db) return null;
+  return new Promise(res => {
+    try{
+      const req = db.transaction(store).objectStore(store).get(key);
+      req.onsuccess = () => res(req.result ?? null);
+      req.onerror = () => res(null);
+    }catch(e){ res(null); }
+  });
+}
+async function dbSchreib(store, key, wert){
+  const db = await oeffneDb(); if(!db) return false;
+  return new Promise(res => {
+    try{
+      const t = db.transaction(store,'readwrite');
+      t.objectStore(store).put(wert, key);
+      t.oncomplete = () => res(true);
+      t.onerror = () => res(false);
+    }catch(e){ res(false); }
+  });
+}
+
+/* ── Prüfgebiet + Karte ──────────────────────────────────────── */
+const STADT = {s:52.338, w:13.088, n:52.675, o:13.761};
+
+const KARTE = new maplibregl.Map({
+  container:'map',
+  style:'https://tiles.openfreemap.org/styles/positron',
+  center:[13.4180, 52.5065],
+  zoom:14.5,
+  minZoom:9,
+  maxZoom:19,
+  maxBounds:[[STADT.w-0.9, STADT.s-0.6],[STADT.o+0.9, STADT.n+0.6]],
+  attributionControl:false
+});
+KARTE.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+const ortungsSteuerung = new maplibregl.GeolocateControl({
+  positionOptions:{enableHighAccuracy:true},
+  trackUserLocation:true, showUserHeading:true, showAccuracyCircle:true
+});
+KARTE.addControl(ortungsSteuerung, 'top-right');
+KARTE.addControl(new maplibregl.AttributionControl({compact:false}), 'bottom-right');
+KARTE.touchPitch.disable();
+KARTE.dragRotate.disable();
+
+const kopfzeile = document.querySelector('header');
+const panelElement = document.getElementById('zeugnis');
+function passeAbstaende(){
+  document.documentElement.style.setProperty(
+    '--kopfHoehe', (kopfzeile.offsetHeight + 8) + 'px');
+  document.documentElement.style.setProperty(
+    '--panelHoehe', panelElement.offsetHeight + 'px');
+}
+new ResizeObserver(passeAbstaende).observe(kopfzeile);
+new ResizeObserver(() => { passeAbstaende(); if(karteBereit) passeMinZoom(); })
+  .observe(panelElement);
+passeAbstaende();
+
+// Tatsächliche Ausdehnung der geladenen Daten, nicht ein geschätztes Rechteck
+let DATEN_BBOX = null;
+function berechneDatenBbox(){
+  let s = 90, n = -90, w = 180, o = -180;
+  const nimm = quelle => {
+    for(const e of (quelle || [])){
+      for(const linie of e.linien){
+        for(const p of linie){
+          if(p[1] < s) s = p[1];
+          if(p[1] > n) n = p[1];
+          if(p[0] < w) w = p[0];
+          if(p[0] > o) o = p[0];
+        }
+      }
+    }
+  };
+  nimm(NETZ);
+  nimm(STRASSEN);
+  DATEN_BBOX = (n > s && o > w)
+    ? {s, w, n, o}
+    : {s:STADT.s, w:STADT.w, n:STADT.n, o:STADT.o};
+  // Der Rahmen, in dem man sich bewegen darf, folgt den Daten
+  KARTE.setMaxBounds([[DATEN_BBOX.w - 0.9, DATEN_BBOX.s - 0.6],
+                      [DATEN_BBOX.o + 0.9, DATEN_BBOX.n + 0.6]]);
+  passeMinZoom();
+}
+
+/* Kopfzeile und Panel verdecken Karte. Ihre Höhen als Rand zu fordern
+   ist richtig, aber nur solange etwas übrig bleibt: sonst rechnet die
+   Kamera Unsinn und springt quer durch die Stadt. */
+function sichereFuellung(){
+  const h = KARTE.getContainer().clientHeight || 600;
+  const b = KARTE.getContainer().clientWidth || 400;
+  return {
+    top: Math.min(kopfzeile.offsetHeight + 16, h * 0.18),
+    bottom: Math.min(panelElement.offsetHeight + 16, h * 0.28),
+    left: Math.min(16, b * 0.08),
+    right: Math.min(16, b * 0.08)
+  };
+}
+
+function passeMinZoom(){
+  const b = DATEN_BBOX || {s:STADT.s, w:STADT.w, n:STADT.n, o:STADT.o};
+  // Kopfzeile oben, Zeugnis unten: dort ist keine Karte zu sehen.
+  const cam = KARTE.cameraForBounds([[b.w, b.s],[b.o, b.n]],
+    {padding: sichereFuellung()});
+  if(cam){
+    const z = Math.max(0, cam.zoom - 0.35);   // eine Handbreit Luft
+    KARTE.setMinZoom(z);
+    if(KARTE.getZoom() < z) KARTE.setZoom(z);
+  }
+}
+KARTE.on('resize', passeMinZoom);
+
+const FARBEN = {fahrrad:'#35D97B', gruen:'#1F9D55', orange:'#E8850C', rot:'#D0342C', grau:'#9BA1A6'};
+const NAH_ZOOM = 14;
+const FARB_AUSDRUCK = ['match', ['get','klasse'],
+  'fahrrad', FARBEN.fahrrad, 'gruen', FARBEN.gruen,
+  'orange', FARBEN.orange, 'rot', FARBEN.rot, FARBEN.grau];
+const leer = {type:'FeatureCollection', features:[]};
+let karteBereit = false;
+
+KARTE.on('load', () => {
+  const ersteSchrift = (KARTE.getStyle().layers.find(l => l.type === 'symbol') || {}).id;
+
+  KARTE.addSource('strassen', {type:'geojson', data:leer});
+  KARTE.addSource('fstr', {type:'geojson', data:leer});
+  KARTE.addSource('netz', {type:'geojson', data:leer});
+  KARTE.addSource('rau', {type:'geojson', data:leer});
+  KARTE.addSource('route', {type:'geojson', data:leer});
+  KARTE.addSource('grenze', {type:'geojson', data:leer});
+
+  KARTE.addLayer({
+    id:'ebene-strassen', type:'line', source:'strassen',
+    layout:{'line-cap':'round','line-join':'round','visibility':'none'},
+    paint:{'line-color':FARBEN.grau, 'line-width':2.4, 'line-opacity':.5}
+  }, ersteSchrift);
+
+  // Fahrradstraßen als Grundschicht: liegt eine auf dem Netz, malt die
+  // Netzebene sie identisch darüber; liegt sie daneben, bleibt sie sichtbar.
+  KARTE.addLayer({
+    id:'ebene-fstr', type:'line', source:'fstr',
+    layout:{'line-cap':'round','line-join':'round'},
+    paint:{'line-color':FARBEN.fahrrad,
+      'line-width':['interpolate',['linear'],['zoom'], 11, 3, 15, 5.6],
+      'line-opacity':.85}
+  }, ersteSchrift);
+
+  KARTE.addLayer({
+    id:'ebene-netz', type:'line', source:'netz',
+    layout:{'line-cap':'round','line-join':'round'},
+    paint:{
+      'line-color':FARB_AUSDRUCK,
+      'line-width':['interpolate',['linear'],['zoom'],
+        11, ['match',['get','klasse'],'fahrrad',3,2.4],
+        15, ['match',['get','klasse'],'fahrrad',5.6,4.8]],
+      'line-opacity':.9
+    }
+  }, ersteSchrift);
+
+  // Rauer Belag: nur sichtbar, solange der Schalter an ist
+  KARTE.addLayer({
+    id:'ebene-rau', type:'line', source:'rau',
+    layout:{'line-cap':'butt','line-join':'round','visibility':'none'},
+    paint:{'line-color':'#5A6672','line-width':3,
+           'line-opacity':.65,'line-dasharray':[1.5,1.5]}
+  }, ersteSchrift);
+
+  KARTE.addLayer({
+    id:'route-rand', type:'line', source:'route',
+    layout:{'line-cap':'round','line-join':'round'},
+    paint:{'line-color':'#EEF0ED','line-width':9,'line-opacity':.9}
+  }, ersteSchrift);
+  KARTE.addLayer({
+    id:'route-linie', type:'line', source:'route',
+    layout:{'line-cap':'round','line-join':'round'},
+    paint:{'line-color':'#2B4A9B','line-width':4.5}
+  }, ersteSchrift);
+
+  KARTE.addLayer({
+    id:'ebene-grenze', type:'line', source:'grenze',
+    layout:{'line-cap':'round'},
+    paint:{'line-color':'#2B4A9B','line-width':2.5,'line-dasharray':[2.5,2.5]}
+  });
+
+  const strassenTipp = e => {
+    if(modus !== 'keiner') return;
+    const f = e.features && e.features[0];
+    if(!f) return;
+    const p = f.properties;
+    const name = p.name ? `<b>${p.name}</b><br>` : '';
+    const zusatz = p.vorrang === true || p.vorrang === 'true'
+      ? `<br><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6672">${T().vorrang}</span>` : '';
+    new maplibregl.Popup({closeButton:true, maxWidth:'280px'})
+      .setLngLat(e.lngLat)
+      .setHTML(`<div style="font-size:16px;line-height:1.4">${name}${T().popup[p.klasse]}${zusatz}</div>`)
+      .addTo(KARTE);
+  };
+  for(const id of ['ebene-netz','ebene-strassen']){
+    KARTE.on('click', id, strassenTipp);
+    KARTE.on('mouseenter', id, () => {
+      if(modus === 'keiner') KARTE.getCanvas().style.cursor = 'pointer';
+    });
+    KARTE.on('mouseleave', id, () => KARTE.getCanvas().style.cursor = '');
+  }
+  KARTE.on('click', e => behandleKartenTipp(e.lngLat));
+  // Langer Druck (bzw. Rechtsklick): einen anderen Start setzen
+  KARTE.on('contextmenu', e => {
+    if(modus !== 'route' || !STRASSEN) return;
+    e.preventDefault && e.preventDefault();
+    setzeStart(e.lngLat, T().routeStandortNeu);
+  });
+
+  karteBereit = true;
+  wendeFilterAn();
+  passeMinZoom();
+  ladeGrenze();
+  ladeMeldungen();
+  ladeAllesAusDb()
+    .then(() => NETZ ? null : ladeGebacken())
+    .then(() => {
+    aktualisiere();
+    // Einmal im Monat leise nachsehen, ob das Land fortgeschrieben hat.
+    if(NETZ && navigator.onLine &&
+       (!STAND || !STAND.geholt || Date.now() - STAND.geholt > PRUEF_ABSTAND)){
+      setTimeout(() => pruefeStand(true), 4000);
+    }
+  });
+});
+
+/* ── Landesgrenze ────────────────────────────────────────────── */
+const rahmenElement = document.createElement('div');
+rahmenElement.className = 'rahmenLabel';
+const rahmenLabel = new maplibregl.Marker({element:rahmenElement, anchor:'bottom'})
+  .setLngLat([(STADT.w+STADT.o)/2, STADT.n]);
+
+/* Die Landesgrenze liegt bei: die zwölf Bezirke des Amts für Statistik
+   Berlin-Brandenburg zu einer Fläche verschmolzen. Keine Anfrage an Dritte. */
+async function ladeGrenze(){
+  let gj = null;
+  try{
+    const antwort = await fetch('grenze.json');
+    if(antwort.ok) gj = await antwort.json();
+  }catch(e){ console.warn('Landesgrenze nicht verfügbar:', e); }
+  if(gj){
+    KARTE.getSource('grenze').setData({type:'Feature', geometry:gj, properties:{}});
+    let top = null;
+    const sammle = c => {
+      if(typeof c[0] === 'number'){ if(!top || c[1] > top[1]) top = c; }
+      else c.forEach(sammle);
+    };
+    sammle(gj.coordinates);
+    if(top) rahmenLabel.setLngLat([top[0], top[1]]);
+  }
+  rahmenElement.textContent = T().pruefgebiet;
+  rahmenLabel.addTo(KARTE);
+}
+
+/* ── Status ──────────────────────────────────────────────────── */
+const status = document.getElementById('status');
+let statusTimer = null;
+function zeigeStatus(text, dauerhaft=false){
+  status.textContent = text;
+  status.classList.add('sichtbar');
+  clearTimeout(statusTimer);
+  if(!dauerhaft) statusTimer = setTimeout(()=>status.classList.remove('sichtbar'), 4500);
+}
+function versteckeStatus(){
+  status.classList.remove('sichtbar');
+  clearTimeout(statusTimer);
+}
+let statusAktion = null;
+status.addEventListener('click', () => {
+  const tun = statusAktion;
+  statusAktion = null;
+  versteckeStatus();
+  if(tun) tun(); else ladeAmtlicheDaten(!!NETZ);
+});
+
+/* ── Geometrie ───────────────────────────────────────────────── */
+function hav(a, b){ // [lon,lat] → km
+  const R = 6371;
+  const dLa = (b[1]-a[1])*Math.PI/180, dLo = (b[0]-a[0])*Math.PI/180;
+  const x = Math.sin(dLa/2)**2 +
+    Math.cos(a[1]*Math.PI/180)*Math.cos(b[1]*Math.PI/180)*Math.sin(dLo/2)**2;
+  return 2*R*Math.asin(Math.sqrt(x));
+}
+function linienLaenge(linie){
+  let sum = 0;
+  for(let i=1;i<linie.length;i++) sum += hav(linie[i-1], linie[i]);
+  return sum;
+}
+// MultiLineString/LineString → Liste von Linien, auf ~1 m gerundet
+function alsLinien(geom){
+  const rund = p => [Math.round(p[0]*1e5)/1e5, Math.round(p[1]*1e5)/1e5];
+  if(geom.type === 'LineString') return [geom.coordinates.map(rund)];
+  if(geom.type === 'MultiLineString') return geom.coordinates.map(l => l.map(rund));
+  return [];
+}
+
+/* ── WFS: seitenweise laden ──────────────────────────────────── */
+const WFS = {
+  netz:     {url:'https://gdi.berlin.de/services/wfs/radverkehrsnetz',
+             typ:'radverkehrsnetz:radverkehrsnetz'},
+  anlagen:  {url:'https://gdi.berlin.de/services/wfs/radverkehrsanlagen',
+             typ:'radverkehrsanlagen:b_radverkehrsanlagen'},
+  strassen: {url:'https://gdi.berlin.de/services/wfs/detailnetz',
+             typ:'detailnetz:c_strassenabschnitte'},
+  fahrrad:  {url:'https://gdi.berlin.de/services/wfs/fahrradstrassen',
+             typ:null}   // Typname wird zur Laufzeit aus den Capabilities gelesen
+};
+
+async function findeTypname(dienst){
+  const antwort = await fetch(dienst.url + '?service=WFS&request=GetCapabilities');
+  if(!antwort.ok) throw new Error('HTTP ' + antwort.status);
+  const roh = await antwort.text();
+  const namen = [...roh.matchAll(/<(?:wfs:)?Name>([^<]+)<\/(?:wfs:)?Name>/g)]
+    .map(m => m[1].trim()).filter(n => n.includes(':'));
+  if(!namen.length) throw new Error('kein Typname');
+  return namen[0];
+}
+const SEITE = 4000;
+
+/* Robust gegen zwei Eigenheiten von WFS-Servern:
+   manche lehnen propertyName ab, manche ignorieren startIndex.
+   Beides wird erkannt und aufgefangen, statt den Ladevorgang zu beenden. */
+async function eineSeite(dienst, felder, start){
+  const u = dienst.url + '?service=WFS&version=2.0.0&request=GetFeature'
+    + '&typenames=' + encodeURIComponent(dienst.typ)
+    + '&count=' + SEITE + '&startIndex=' + start
+    + '&outputFormat=application/json&srsName=EPSG:4326'
+    + (felder ? '&propertyName=' + encodeURIComponent(felder) : '');
+  const antwort = await fetch(u);
+  if(!antwort.ok) throw new Error('HTTP ' + antwort.status);
+  const roh = await antwort.text();
+  let gj;
+  try{ gj = JSON.parse(roh); }
+  catch(e){ throw new Error('kein JSON: ' + roh.slice(0,80)); }
+  return gj.features || [];
+}
+
+async function holeWfs(dienst, felder, aufSeite){
+  const alle = [];
+  let benutzeFelder = felder;
+  let letzteKennung = null;
+  for(let start = 0; ; start += SEITE){
+    let f;
+    try{
+      f = await eineSeite(dienst, benutzeFelder, start);
+    }catch(fehler){
+      // Erster Versuch gescheitert und wir hatten eine Feldauswahl?
+      // Dann ohne sie erneut versuchen — kostet Datenmenge, rettet den Lauf.
+      if(benutzeFelder){
+        benutzeFelder = null;
+        f = await eineSeite(dienst, null, start);
+      }else throw fehler;
+    }
+    if(!f.length) break;
+    // Ignoriert der Server startIndex, kommt zweimal dasselbe zurück.
+    const kennung = f[0].id || JSON.stringify(f[0].properties || {});
+    if(letzteKennung !== null && kennung === letzteKennung) break;
+    letzteKennung = kennung;
+    for(const x of f) alle.push(x);
+    if(aufSeite) aufSeite(alle.length);
+    if(f.length < SEITE) break;
+    if(start > 200000) break;
+  }
+  return alle;
+}
+
+/* ── Einstufung nach amtlichem Anlagentyp ────────────────────── */
+/* Baulich getrennt zählt als grün, alles Aufgemalte als orange.
+   Entscheidend ist der Untertyp, nicht die Oberkategorie: unter
+   "Radwege" stecken auch Geh-/Radwege, die nur durch eine Linie
+   unterschieden sind. Das ist kein baulicher Schutz. */
+function typKlasse(rvaTyp, sorvt){
+  const t = ((rvaTyp || '') + ' ' + (sorvt || '')).toLowerCase();
+  if(t.includes('geschützt') || t.includes('geschuetzt')) return 'gruen';
+  if(t.includes('baulich')) return 'gruen';
+  if(t.includes('markierung')) return 'orange';   // nur eine Linie dazwischen
+  if(t.includes('schutzstreifen')) return 'orange';
+  if(t.includes('radfahrstreifen')) return 'orange';
+  if(t.includes('bussonderfahrstreifen')) return 'orange';
+  if(t.includes('gehweg')) return 'orange';       // Gehweg, Radfahrer frei
+  if(t.includes('radweg')) return 'gruen';        // eigenständiger Radweg
+  return 'orange';
+}
+const RANG = {gruen:2, orange:1};
+
+/* ── Daten im Speicher ───────────────────────────────────────── */
+const NETZ_VERSION = 5;   // Fahrradstraßen aus OpenStreetMap statt aus dem amtlichen Register
+let NETZ = null;      // [{id, vorrang, klasse, linien:[[[lon,lat],…]]}]
+let FSTR_LINIEN = [];  // rohe Fahrradstraßen-Geometrie, auch abseits des Netzes
+let STRASSEN = null;  // [{id, name, a, b, laenge, linien}]
+let typTally = {};    // welche Anlagentypen kamen vor (für die Über-Seite)
+
+/* Der amtliche Dienst ist nicht von jedem Anschluss aus erreichbar. Damit
+   die Karte trotzdem beim ersten Start steht, liegt ein Abzug der Daten bei.
+   Er wird einmal in die Datenbank übernommen; der WFS bleibt der Weg für
+   spätere Aktualisierungen. */
+async function ladeGebacken(){
+  try{
+    const antwort = await fetch('netz-berlin.json');
+    if(!antwort.ok) return false;
+    const daten = await antwort.json();
+    if(!daten || daten.v !== NETZ_VERSION || !Array.isArray(daten.netz)) return false;
+
+    NETZ = daten.netz;
+    if(Array.isArray(daten.strassen) && daten.strassen.length) STRASSEN = daten.strassen;
+
+    // Fahrradstraßen-Geometrie liegt als eigene Datei bei
+    try{
+      const f = await fetch('fahrradstrassen.json', {cache:'force-cache'});
+      if(f.ok){
+        const g = await f.json();
+        if(Array.isArray(g.linien)) FSTR_LINIEN = g.linien;
+      }
+    }catch(e){}
+
+    await dbSchreib('amt','netz',{netz:NETZ, tally:typTally,
+      fstr:FSTR_LINIEN, v:NETZ_VERSION});
+    if(STRASSEN) await dbSchreib('amt','strassen', STRASSEN);
+    if(Array.isArray(daten.rau) && daten.rau.length){
+      RAU_IDS = new Set(daten.rau);
+      await dbSchreib('amt','rau3', {ids:daten.rau});
+    }
+    if(Array.isArray(daten.verboten) && daten.verboten.length){
+      VERBOTEN_IDS = new Set(daten.verboten);
+      await dbSchreib('amt','verboten', daten.verboten);
+    }
+
+    // Datenstand ist das Alter des Abzugs, nicht der Zeitpunkt des Ladens
+    const lm = antwort.headers.get('last-modified');
+    const wann = lm ? Date.parse(lm) : NaN;
+    STAND = {geholt: isFinite(wann) ? wann : Date.now(), abzug: true};
+    await dbSchreib('amt','stand', STAND);
+
+    if(karteBereit){
+      setzeNetzQuelle();
+      berechneDatenBbox();
+      if(STRASSEN) setzeStrassenQuelle();
+    }
+    graphVeraltet = true;
+    return true;
+  }catch(e){
+    console.warn('Abzug nicht verfügbar:', e);
+    return false;
+  }
+}
+
+async function ladeAllesAusDb(){
+  const n = await dbLies('amt', 'netz');
+  // Ältere Datenstände wurden mit der alten Einstufung gerechnet und
+  // müssen neu geholt werden. Das Straßennetz bleibt unberührt.
+  if(n && n.v === NETZ_VERSION){
+    NETZ = n.netz; typTally = n.tally || {}; FSTR_LINIEN = n.fstr || [];
+  }
+  const s = await dbLies('amt', 'strassen');
+  if(s) STRASSEN = s;
+  STAND = await dbLies('amt', 'stand');
+  const v = await dbLies('amt', 'verboten');
+  if(Array.isArray(v)) VERBOTEN_IDS = new Set(v);
+  const r = await dbLies('amt', 'rau3');
+  if(r && r.linien){ RAU_LINIEN = r.linien; RAU_IDS = new Set(r.ids || []); }
+  if(NETZ){ setzeNetzQuelle(); berechneDatenBbox(); }
+  if(STRASSEN) setzeStrassenQuelle();
+  if(RAU_LINIEN){ setzeRauQuelle(); zeigeBelagKnopf(); }
+}
+
+function netzFeatures(){
+  const features = [];
+  for(const e of NETZ){
+    for(const linie of e.linien){
+      features.push({type:'Feature',
+        properties:{klasse:e.klasse, name:e.name || '', vorrang:!!e.vorrang},
+        geometry:{type:'LineString', coordinates:linie}});
+    }
+  }
+  return {type:'FeatureCollection', features};
+}
+function setzeNetzQuelle(){
+  if(!karteBereit) return;
+  if(NETZ) KARTE.getSource('netz').setData(netzFeatures());
+  KARTE.getSource('fstr').setData({type:'FeatureCollection',
+    features:(FSTR_LINIEN || []).map(l => ({type:'Feature', properties:{},
+      geometry:{type:'LineString', coordinates:l}}))});
+}
+function strassenFeatures(){
+  const features = [];
+  for(const e of STRASSEN){
+    for(const linie of e.linien){
+      features.push({type:'Feature',
+        properties:{klasse:'grau', name:e.name || ''},
+        geometry:{type:'LineString', coordinates:linie}});
+    }
+  }
+  return {type:'FeatureCollection', features};
+}
+let strassenGezeichnet = false;
+function setzeStrassenQuelle(){
+  if(karteBereit && STRASSEN && !strassenGezeichnet){
+    KARTE.getSource('strassen').setData(strassenFeatures());
+    strassenGezeichnet = true;
+  }
+}
+
+/* ── Der eigentliche Ladevorgang ─────────────────────────────── */
+const ladenKnopf = document.getElementById('stadtKnopf');
+let ladenLaeuft = false;
+
+async function ladeAmtlicheDaten(mitStrassen){
+  if(ladenLaeuft) return;
+  ladenLaeuft = true;
+  ladenKnopf.disabled = true;
+  let wecker = null;
+  try{ wecker = await navigator.wakeLock.request('screen'); }catch(e){}
+  try{
+    if(!NETZ){
+      // 1. Bestand: nur Sachdaten, keine Geometrie — klein und schnell
+      zeigeStatus(T().ladenAnlagen(0), true);
+      const anlagen = await holeWfs(WFS.anlagen, 'segm_segm,rva_typ,sorvt_typ',
+        n => zeigeStatus(T().ladenAnlagen(n), true));
+      await merkeStand({anlagen:anlagen.length});
+      const bestand = new Map();
+      typTally = {};
+      for(const f of anlagen){
+        const p = f.properties || {};
+        if(!p.segm_segm) continue;
+        const k = typKlasse(p.rva_typ, p.sorvt_typ);
+        const bez = (p.sorvt_typ || p.rva_typ || '?').slice(0, 46);
+        if(!typTally[bez]) typTally[bez] = {n:0, k};
+        typTally[bez].n++;
+        const alt = bestand.get(p.segm_segm);
+        if(!alt || RANG[k] > RANG[alt]) bestand.set(p.segm_segm, k);
+      }
+
+      // 1b. Bezirkszuordnung: nur zwei Spalten, keine Geometrie.
+      //     Das Detailnetz führt sie amtlich, geteilt wird über die
+      //     gemeinsame Elementnummer.
+      zeigeStatus(T().ladenNetz(0), true);
+      const bezMap = new Map();
+      try{
+        const bez = await holeWfs(WFS.strassen, 'element_nr,bezirk', null);
+        for(const f of bez){
+          const p = f.properties || {};
+          if(p.element_nr && p.bezirk) bezMap.set(p.element_nr, p.bezirk);
+        }
+      }catch(e){ /* ohne Bezirke bleibt die Karte vollständig nutzbar */ }
+
+      // 1c. Fahrradstraßen: wenige, aber entscheidend. Sie erfüllen das
+      //     Gesetz ohne Beton, durch umgekehrte Kräfteverhältnisse: das
+      //     Rad hat Vorrang, das Auto ist Gast. Zuordnung per Kennung,
+      //     wenn das Datenblatt eine trägt, sonst über die Geometrie.
+      let fstrLinien = [];
+      const fstrIds = new Set();
+      // Das amtliche Fahrradstraßen-Register endet 2023 und kennt weder die
+      // Wallstraße noch alles danach Gebaute. Deshalb liegt hier eine aus
+      // OpenStreetMap gewonnene Datei bei; das Register bleibt Notnagel.
+      try{
+        const antwort = await fetch('fahrradstrassen.json', {cache:'force-cache'});
+        if(antwort.ok){
+          const daten = await antwort.json();
+          if(Array.isArray(daten.linien)) fstrLinien = daten.linien;
+        }
+      }catch(e){}
+      if(!fstrLinien.length){
+        try{
+          if(!WFS.fahrrad.typ) WFS.fahrrad.typ = await findeTypname(WFS.fahrrad);
+          const rohF = await holeWfs(WFS.fahrrad, null, null);
+          for(const f of rohF){
+            const g = f.geometry;
+            if(!g) continue;
+            for(const l of alsLinien(g)) fstrLinien.push(l);
+            const p = f.properties || {};
+            for(const feld of ['elem_nr','element_nr','segm_segm']){
+              if(p[feld]) fstrIds.add(p[feld]);
+            }
+          }
+        }catch(e){ /* ohne Fahrradstraßen bleibt alles andere gültig */ }
+      }
+
+      const fstrRaster = new Set();
+      for(const l of fstrLinien){
+        for(const p of abtasten(l, 0.010)){
+          fstrRaster.add(Math.round(p[1]/RZ_LAT) + ':' + Math.round(p[0]/RZ_LON));
+        }
+      }
+      const istFahrradstrasse = (id, linien) => {
+        if(fstrIds.has(id)) return true;
+        if(!fstrRaster.size) return false;
+        const linie = linien[0];
+        if(!linie || linie.length < 2) return false;
+        let treffer = 0, gesamt = 0;
+        for(const p of abtasten(linie, 0.020)){
+          gesamt++;
+          const i = Math.round(p[1]/RZ_LAT), j = Math.round(p[0]/RZ_LON);
+          let da = false;
+          for(let di=-1; di<=1 && !da; di++)
+            for(let dj=-1; dj<=1 && !da; dj++)
+              if(fstrRaster.has((i+di) + ':' + (j+dj))) da = true;
+          if(da) treffer++;
+        }
+        return gesamt > 0 && treffer / gesamt >= 0.55;
+      };
+
+      // 2. Soll: das Radverkehrsnetz des Mobilitätsgesetzes
+      const netz = await holeWfs(WFS.netz, null,
+        n => zeigeStatus(T().ladenNetz(n), true));
+      const liste = [];
+      for(const f of netz){
+        const p = f.properties || {};
+        const linien = alsLinien(f.geometry || {});
+        if(!linien.length) continue;
+        const gefunden = bestand.get(p.elem_nr);
+        // Fahrradstraße überstimmt alles: dort ist das Gesetz erfüllt,
+        // nicht durch Beton, sondern durch Vorrang.
+        const klasse = istFahrradstrasse(p.elem_nr, linien)
+          ? 'fahrrad' : (gefunden || 'rot');
+        liste.push({
+          id:p.elem_nr,
+          bez: bezMap.get(p.elem_nr) || null,
+          vorrang:(p.ist_radvorrangnetz || '').includes('Radvorrang'),
+          klasse,
+          linien
+        });
+      }
+      if(!liste.length) throw new Error('Radverkehrsnetz leer');
+      NETZ = liste;
+      FSTR_LINIEN = fstrLinien;
+      await dbSchreib('amt','netz',{netz:liste, tally:typTally,
+        fstr:fstrLinien, v:NETZ_VERSION});
+      setzeNetzQuelle();
+      berechneDatenBbox();
+      await merkeStand({netz:netz.length});
+      BEZIRKE = berechneBezirke();
+    }
+
+    if(mitStrassen && !STRASSEN){
+      zeigeStatus(T().ladenStrassen(0), true);
+      // Keine Feldauswahl: sie würde die Geometrie mit abschneiden,
+      // und ohne Geometrie gibt es weder Linien noch Routen.
+      const roh = await holeWfs(WFS.strassen, null,
+        n => zeigeStatus(T().ladenStrassen(n), true));
+      const liste = [];
+      for(const f of roh){
+        const p = f.properties || {};
+        const linien = alsLinien(f.geometry || {});
+        if(!linien.length) continue;
+        liste.push({id:p.element_nr, name:p.strassenname || '',
+          a:p.beginnt_bei_vp, b:p.endet_bei_vp,
+          laenge:(+p.laenge || linienLaenge(linien[0])*1000)/1000, linien});
+      }
+      if(!liste.length){
+        const mitGeom = roh.filter(f => f.geometry).length;
+        throw new Error('Straßennetz ohne Geometrie: ' + roh.length
+          + ' geladen, ' + mitGeom + ' mit Geometrie');
+      }
+      STRASSEN = liste;
+      await dbSchreib('amt','strassen',liste);
+      setzeStrassenQuelle();
+      berechneDatenBbox();
+      await merkeStand({strassen:roh.length});
+      graphVeraltet = true;
+    }
+    zeigeStatus(T().ladenFertig);
+  }catch(fehler){
+    zeigeStatus(T().ladenFehler + ' [' + (fehler.message || fehler) + ']', true);
+  }
+  try{ if(wecker) await wecker.release(); }catch(e){}
+  ladenLaeuft = false;
+  ladenKnopf.disabled = false;
+  aktualisiere();
+}
+ladenKnopf.addEventListener('click', () => ladeAmtlicheDaten(!!NETZ));
+
+/* ── Rauer Belag ──────────────────────────────────────────────────
+   Die amtlichen Daten kennen keinen Belag. OpenStreetMap schon, und
+   zwar nur für die wenigen tausend Wege, die überhaupt rau sind: eine
+   einzige kleine Abfrage, danach für immer auf dem Gerät. Zugeordnet
+   wird über die Geometrie, denn OSM und Detailnetz teilen keine
+   Kennung: ein Raster von etwa 15 m, und ein Abschnitt gilt als rau,
+   wenn die Mehrheit seiner Stichproben darin liegt. */
+const RAU_ARTEN = ['cobblestone', 'sett', 'unhewn_cobblestone',
+  'cobblestone:flattened', 'gravel', 'ground', 'sand'];
+const RZ_LAT = 0.000135, RZ_LON = 0.00022;   // ~15 m
+const rauZelle = (lat, lon) =>
+  Math.round(lat/RZ_LAT) + ':' + Math.round(lon/RZ_LON);
+
+let RAU_LINIEN = null;   // Geometrie fürs Zeichnen
+let RAU_IDS = null;      // Set von element_nr fürs Routing
+
+// Die Belagsdaten kommen ausschließlich aus der beiliegenden belag.json;
+// neu erzeugt werden sie bei Bedarf über das Werkzeug in probe.html.
+
+// Punkte entlang einer Linie, etwa alle 10 m
+function* abtasten(linie, schrittKm){
+  for(let i=1;i<linie.length;i++){
+    const a = linie[i-1], b = linie[i];
+    const d = hav(a, b);
+    const n = Math.max(1, Math.ceil(d / schrittKm));
+    for(let k=0;k<n;k++){
+      const t = k/n;
+      yield [a[0] + (b[0]-a[0])*t, a[1] + (b[1]-a[1])*t];
+    }
+  }
+  yield linie[linie.length-1];
+}
+
+/* Die Zuordnung lief bisher in einem Zug durch 43.000 Abschnitte und
+   blockierte dabei die Seite. Jetzt: grober Vorfilter, damit die meisten
+   Abschnitte sofort ausscheiden, und Arbeit in Häppchen, zwischen denen
+   der Browser wieder zum Zug kommt. */
+const GROB = 8;   // acht feine Zellen, also gut 120 m
+
+async function rasterMatch(linien, quote, meldung){
+  const raster = new Set(), grob = new Set();
+  for(const linie of linien){
+    for(const p of abtasten(linie, 0.010)){
+      const i = Math.round(p[1]/RZ_LAT), j = Math.round(p[0]/RZ_LON);
+      raster.add(i + ':' + j);
+      grob.add(Math.floor(i/GROB) + ':' + Math.floor(j/GROB));
+    }
+  }
+  const ids = new Set();
+  const liste = STRASSEN || [];
+  for(let k = 0; k < liste.length; k++){
+    if(k % 2000 === 0){
+      zeigeStatus(meldung(Math.round(100*k/Math.max(1,liste.length))), true);
+      await new Promise(r => setTimeout(r, 0));   // Luft für die Anzeige
+    }
+    const e = liste[k];
+    const linie = e.linien[0];
+    if(!linie || linie.length < 2) continue;
+
+    // Grober Vorfilter: liegt der Abschnitt überhaupt in der Nähe?
+    const m = linie[Math.floor(linie.length/2)];
+    const gi = Math.floor(Math.round(m[1]/RZ_LAT)/GROB);
+    const gj = Math.floor(Math.round(m[0]/RZ_LON)/GROB);
+    let nah = false;
+    for(let di=-1; di<=1 && !nah; di++)
+      for(let dj=-1; dj<=1 && !nah; dj++)
+        if(grob.has((gi+di) + ':' + (gj+dj))) nah = true;
+    if(!nah) continue;
+
+    let treffer = 0, gesamt = 0;
+    for(const p of abtasten(linie, 0.020)){
+      gesamt++;
+      const i = Math.round(p[1]/RZ_LAT), j = Math.round(p[0]/RZ_LON);
+      let da = false;
+      for(let di=-1; di<=1 && !da; di++)
+        for(let dj=-1; dj<=1 && !da; dj++)
+          if(raster.has((i+di) + ':' + (j+dj))) da = true;
+      if(da) treffer++;
+    }
+    if(gesamt && treffer / gesamt >= quote) ids.add(e.id);
+  }
+  return ids;
+}
+
+/* Die Belagsdaten liegen als Datei bei. Kopfsteinpflaster ändert sich
+   über Jahrzehnte, nicht über Wochen. Nur falls die Datei fehlt, wird
+   noch live abgefragt. */
+async function holeRauFertig(){
+  try{
+    const antwort = await fetch('belag.json', {cache:'force-cache'});
+    if(!antwort.ok) return null;
+    const daten = await antwort.json();
+    if(Array.isArray(daten.linien) && daten.linien.length) return daten.linien;
+    // Notfalls auch eine gewöhnliche GeoJSON-Sammlung verstehen
+    if(daten.type === 'FeatureCollection'){
+      const linien = [];
+      for(const f of (daten.features || [])){
+        const g = f.geometry;
+        if(!g) continue;
+        if(g.type === 'LineString') linien.push(g.coordinates);
+        else if(g.type === 'MultiLineString') for(const l of g.coordinates) linien.push(l);
+      }
+      if(linien.length) return linien;
+    }
+  }catch(e){}
+  return null;
+}
+
+async function ladeRau(){
+  if(RAU_IDS && RAU_LINIEN) return true;
+  const gespeichert = await dbLies('amt', 'rau3');
+  if(gespeichert && gespeichert.linien){
+    RAU_LINIEN = gespeichert.linien;
+    RAU_IDS = new Set(gespeichert.ids || []);
+    setzeRauQuelle();
+    return true;
+  }
+  // Aus dem Abzug liegen die Kennungen vor, die Linien holen wir aus der
+  // beiliegenden Belagsdatei: die Zuordnung muss nicht neu gerechnet werden.
+  if(RAU_IDS && RAU_IDS.size){
+    const fertig = await holeRauFertig();
+    if(fertig){
+      RAU_LINIEN = fertig;
+      await dbSchreib('amt','rau3', {linien:fertig, ids:[...RAU_IDS]});
+      setzeRauQuelle();
+      return true;
+    }
+  }
+  zeigeStatus(T().belagLaedt, true);
+  const linien = await holeRauFertig();
+  if(!linien){ zeigeStatus(T().belagFehler, true); return false; }
+  RAU_LINIEN = linien;
+  RAU_IDS = await rasterMatch(linien, 0.6, T().belagZuordnung);
+  await dbSchreib('amt','rau3',{linien, ids:[...RAU_IDS]});
+  setzeRauQuelle();
+  graphVeraltet = true;
+  zeigeStatus(T().belagFertig(RAU_IDS.size));
+  return true;
+}
+
+function setzeRauQuelle(){
+  if(!karteBereit || !RAU_LINIEN) return;
+  KARTE.getSource('rau').setData({type:'FeatureCollection',
+    features:RAU_LINIEN.map(l => ({type:'Feature', properties:{},
+      geometry:{type:'LineString', coordinates:l}}))});
+}
+
+/* ── Datenstand ───────────────────────────────────────────────────
+   Die amtlichen Daten sind ein lebendes Register ohne festen Rhythmus.
+   Statt alles blind neu zu laden, fragen wir nur die Anzahl der Objekte
+   ab: eine Antwort ohne Geometrie, in Sekundenbruchteilen. Ändert sie
+   sich, hat das Land etwas fortgeschrieben. */
+let STAND = null;   // {geholt, netz, anlagen, strassen}
+const PRUEF_ABSTAND = 30 * 24 * 3600e3;
+
+async function anzahlWfs(dienst){
+  const u = dienst.url + '?service=WFS&version=2.0.0&request=GetFeature'
+    + '&typenames=' + encodeURIComponent(dienst.typ) + '&resultType=hits';
+  const antwort = await fetch(u);
+  if(!antwort.ok) throw new Error('HTTP ' + antwort.status);
+  const roh = await antwort.text();
+  const m = roh.match(/numberMatched=["'](\d+)["']/)
+         || roh.match(/numberOfFeatures=["'](\d+)["']/);
+  if(!m) throw new Error('keine Anzahl');
+  return +m[1];
+}
+
+async function merkeStand(teil){
+  STAND = Object.assign({geholt:Date.now()}, STAND || {}, teil, {geholt:Date.now()});
+  await dbSchreib('amt','stand', STAND);
+}
+
+async function pruefeStand(still){
+  if(!NETZ) return;
+  if(!still) zeigeStatus(T().pruefeLaeuft, true);
+  try{
+    const [netzJetzt, anlagenJetzt] = await Promise.all([
+      anzahlWfs(WFS.netz), anzahlWfs(WFS.anlagen)
+    ]);
+    let strassenJetzt = null;
+    if(STRASSEN){ try{ strassenJetzt = await anzahlWfs(WFS.strassen); }catch(e){} }
+    const anders = (STAND && (
+        (STAND.netz != null && netzJetzt !== STAND.netz) ||
+        (STAND.anlagen != null && anlagenJetzt !== STAND.anlagen) ||
+        (strassenJetzt != null && STAND.strassen != null && strassenJetzt !== STAND.strassen)));
+    if(!STAND){ await merkeStand({netz:netzJetzt, anlagen:anlagenJetzt,
+                                  strassen:strassenJetzt}); return; }
+    if(anders){
+      const strassenAuch = strassenJetzt != null && strassenJetzt !== STAND.strassen;
+      statusAktion = () => {
+        NETZ = null;
+        if(strassenAuch){ STRASSEN = null; strassenGezeichnet = false; }
+        ladeAmtlicheDaten(true);
+      };
+      zeigeStatus(T().standNeu, true);
+    }else{
+      await merkeStand({});          // geprüft, nichts Neues
+      if(!still) zeigeStatus(T().standAktuell);
+    }
+  }catch(e){
+    // Wer nicht gefragt hat, soll auch keine Fehlermeldung sehen.
+    console.warn('Datenstandprüfung nicht möglich:', e);
+    if(!still) zeigeStatus(T().standFehler, true);
+  }
+}
+
+/* ── Ansichtsfilter ───────────────────────────────────────────────
+   Jede Legendenzeile ist ein Schalter. Wer nur die Fahrradstraßen sehen
+   will, um fehlende Verbindungen zu finden, blendet den Rest aus. Der
+   Filter ändert nur den Blick: gezählt und benotet wird immer alles,
+   ein Zeugnis wird nicht besser, wenn man wegsieht. */
+const ALLE_KLASSEN = ['fahrrad','gruen','orange','rot','grau'];
+let sichtbar = new Set(ALLE_KLASSEN);
+try{
+  const gespeichert = JSON.parse(localStorage.getItem('radzeugnis-filter'));
+  if(Array.isArray(gespeichert) && gespeichert.length){
+    sichtbar = new Set(gespeichert.filter(k => ALLE_KLASSEN.includes(k)));
+  }
+}catch(e){}
+
+function wendeFilterAn(){
+  for(const zeile of document.querySelectorAll('.legende .zeile[data-klasse]')){
+    const an = sichtbar.has(zeile.dataset.klasse);
+    zeile.classList.toggle('aus', !an);
+    zeile.setAttribute('aria-pressed', String(an));
+  }
+  if(!karteBereit) return;
+  KARTE.setFilter('ebene-netz',
+    ['in', ['get','klasse'], ['literal', [...sichtbar]]]);
+  KARTE.setLayoutProperty('ebene-fstr','visibility',
+    sichtbar.has('fahrrad') ? 'visible' : 'none');
+  if(STRASSEN){
+    KARTE.setLayoutProperty('ebene-strassen','visibility',
+      (KARTE.getZoom() >= NAH_ZOOM && sichtbar.has('grau')) ? 'visible' : 'none');
+  }
+}
+
+for(const zeile of document.querySelectorAll('.legende .zeile[data-klasse]')){
+  const schalte = () => {
+    const k = zeile.dataset.klasse;
+    if(sichtbar.has(k)) sichtbar.delete(k); else sichtbar.add(k);
+    localStorage.setItem('radzeugnis-filter', JSON.stringify([...sichtbar]));
+    wendeFilterAn();
+  };
+  zeile.addEventListener('click', schalte);
+  zeile.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); schalte(); }
+  });
+}
+
+/* ── Statistik: immer genau der Bildausschnitt ───────────────── */
+function kmImSichtfeld(){
+  const km = {fahrrad:0, gruen:0, orange:0, rot:0, grau:0};
+  if(!NETZ) return km;
+  const b = KARTE.getBounds();
+  const drin = p => p[1] >= b.getSouth() && p[1] <= b.getNorth()
+                 && p[0] >= b.getWest()  && p[0] <= b.getEast();
+  for(const e of NETZ){
+    for(const linie of e.linien){
+      for(let i=1;i<linie.length;i++){
+        const m = [(linie[i-1][0]+linie[i][0])/2, (linie[i-1][1]+linie[i][1])/2];
+        if(drin(m)) km[e.klasse] += hav(linie[i-1], linie[i]);
+      }
+    }
+  }
+  if(STRASSEN && KARTE.getZoom() >= NAH_ZOOM){
+    for(const e of STRASSEN){
+      for(const linie of e.linien){
+        for(let i=1;i<linie.length;i++){
+          const m = [(linie[i-1][0]+linie[i][0])/2, (linie[i-1][1]+linie[i][1])/2];
+          if(drin(m)) km.grau += hav(linie[i-1], linie[i]);
+        }
+      }
+    }
+  }
+  return km;
+}
+
+const NOTEN = [[85,'1'],[70,'2'],[55,'3'],[40,'4'],[25,'5'],[0,'6']];
+// Markierungen zählen zur Hälfte: vorhanden, aber nicht gesetzeskonform.
+function noteFuer(km){
+  const fahrrad = km.fahrrad || 0;
+  const benotet = fahrrad + km.gruen + km.orange + km.rot;
+  if(benotet < 0.05) return null;
+  const anteil = 100 * (fahrrad + km.gruen + km.orange * 0.5) / benotet;
+  return NOTEN.find(([schwelle]) => anteil >= schwelle)[1];
+}
+let letzteKm = null, letzterGrau = false, letzterBerlin = false;
+
+function setzeStatistik(km, grauBekannt, berlin){
+  letzteKm = km; letzterGrau = grauBekannt; letzterBerlin = berlin;
+  const f = v => v == null ? '–' : v.toFixed(1).replace('.', T().dezimal) + ' km';
+  document.getElementById('kmFahrrad').textContent = km ? f(km.fahrrad || 0) : '–';
+  document.getElementById('kmGruen').textContent  = km ? f(km.gruen)  : '–';
+  document.getElementById('kmOrange').textContent = km ? f(km.orange) : '–';
+  document.getElementById('kmRot').textContent    = km ? f(km.rot)    : '–';
+  document.getElementById('kmGrau').textContent   = (km && grauBekannt) ? f(km.grau) : '–';
+  document.getElementById('txtGrau').textContent  = grauBekannt ? T().grau : T().grauStadt;
+  document.getElementById('txtPanelTitel').textContent =
+    berlin ? T().panelTitelStadt : T().panelTitel;
+
+  const zahl = document.getElementById('noteZahl');
+  const wort = document.getElementById('noteWort');
+  const inhalt = document.getElementById('stempelInhalt');
+  const note = km ? noteFuer(km) : null;
+  if(!note){
+    zahl.textContent = '–';
+    wort.textContent = T().unbenotet;
+    return;
+  }
+  if(zahl.textContent !== note){
+    inhalt.classList.remove('thump');
+    void inhalt.getBoundingClientRect();
+    inhalt.classList.add('thump');
+  }
+  zahl.textContent = note;
+  wort.textContent = T().noten[note];
+}
+
+/* ── Bezirke ──────────────────────────────────────────────────────
+   Zwölf Bezirke, zwölf Zeugnisse. Die Zuordnung stammt aus dem
+   amtlichen Detailnetz, nicht aus einer eigenen Verschneidung. */
+let BEZIRKE = null;   // [{name, km, note, bbox}]
+
+function berechneBezirke(){
+  if(!NETZ) return null;
+  const nach = new Map();
+  for(const e of NETZ){
+    if(!e.bez) continue;
+    let b = nach.get(e.bez);
+    if(!b){
+      b = {name:e.bez, km:{fahrrad:0, gruen:0, orange:0, rot:0, grau:0}, lats:[], lons:[]};
+      nach.set(e.bez, b);
+    }
+    for(const linie of e.linien){
+      for(let i=1;i<linie.length;i++) b.km[e.klasse] += hav(linie[i-1], linie[i]);
+      const m = linie[Math.floor(linie.length/2)];
+      b.lats.push(m[1]);
+      b.lons.push(m[0]);
+    }
+  }
+  const spanne = (werte) => {
+    werte.sort((a,b) => a-b);
+    const n = werte.length;
+    if(n < 20) return [werte[0], werte[n-1]];
+    const lo = werte[Math.floor(n * 0.02)];
+    const hi = werte[Math.ceil(n * 0.98) - 1];
+    const rand = (hi - lo) * 0.06 || 0.004;
+    return [lo - rand, hi + rand];
+  };
+  const liste = [...nach.values()].map(b => {
+    const [sLat, nLat] = spanne(b.lats);
+    const [wLon, oLon] = spanne(b.lons);
+    return {
+    name:b.name, km:b.km, note:noteFuer(b.km),
+    bbox:[[wLon, sLat],[oLon, nLat]],
+    anteil: ((b.km.fahrrad || 0) + b.km.gruen + b.km.orange*0.5) /
+            Math.max(0.001, (b.km.fahrrad || 0) + b.km.gruen + b.km.orange + b.km.rot)
+  };});
+  // Schlechteste zuerst: das ist die Reihenfolge, die interessiert.
+  liste.sort((a,b) => a.anteil - b.anteil);
+  return liste;
+}
+
+function baueBezirke(){
+  const wrap = document.getElementById('bezirke');
+  wrap.innerHTML = '';
+  if(!BEZIRKE || !BEZIRKE.length){
+    const p = document.createElement('div');
+    p.style.cssText = 'padding:12px 14px;font-size:16px;color:var(--tinte-schwach)';
+    p.textContent = T().bezBrauchtDaten;
+    wrap.appendChild(p);
+    return;
+  }
+  const fmt = v => v.toFixed(0).replace('.', T().dezimal);
+  for(const b of BEZIRKE){
+    const z = document.createElement('button');
+    z.className = 'bezZeile';
+
+    const kopfZeile = document.createElement('span');
+    kopfZeile.className = 'kopfzeileBez';
+    const name = document.createElement('span');
+    name.className = 'name';
+    name.textContent = b.name;
+    const fehlt = document.createElement('span');
+    fehlt.className = 'fehlt';
+    fehlt.textContent = fmt(b.km.rot) + ' km ' + T().bezOhne;
+    kopfZeile.append(name, fehlt);
+
+    // Der Balken zeigt das Verhältnis, nicht nur die Note
+    const gesamt = Math.max(0.001,
+      (b.km.fahrrad || 0) + b.km.gruen + b.km.orange + b.km.rot);
+    const balken = document.createElement('span');
+    balken.className = 'balken';
+    for(const [klasse, wert] of [['bFahrrad', b.km.fahrrad || 0],
+                                 ['bGruen', b.km.gruen],
+                                 ['bOrange', b.km.orange],
+                                 ['bRot', b.km.rot]]){
+      const teil = document.createElement('span');
+      teil.className = klasse;
+      teil.style.width = (100 * wert / gesamt).toFixed(2) + '%';
+      balken.appendChild(teil);
+    }
+    balken.title = `${fmt(b.km.gruen)} / ${fmt(b.km.orange)} / ${fmt(b.km.rot)} km`;
+
+    const note = document.createElement('span');
+    note.className = 'note';
+    note.textContent = b.note || '–';
+    z.append(kopfZeile, note, balken);
+    z.addEventListener('click', () => {
+      // Die Liste macht Platz, sonst bliebe für den Bezirk ein Streifen
+      if(modus === 'bezirke') setzeModus('bezirke');
+      passeAbstaende();
+      setTimeout(() => {
+        KARTE.fitBounds(b.bbox, {padding: sichereFuellung(),
+          maxZoom: 15, duration: 700});
+      }, 80);
+    });
+    wrap.appendChild(z);
+  }
+}
+
+/* ── Steuerung ───────────────────────────────────────────────── */
+function ganzBerlinImBild(){
+  const d = DATEN_BBOX || {s:STADT.s, w:STADT.w, n:STADT.n, o:STADT.o};
+  const b = KARTE.getBounds();
+  return b.getWest()  <= d.w + 0.004 && b.getEast()  >= d.o - 0.004
+      && b.getSouth() <= d.s + 0.004 && b.getNorth() >= d.n - 0.004;
+}
+
+function aktualisiere(){
+  if(!karteBereit) return;
+  if(karteBereit && STRASSEN){
+    KARTE.setLayoutProperty('ebene-strassen','visibility',
+      (KARTE.getZoom() >= NAH_ZOOM && sichtbar.has('grau')) ? 'visible' : 'none');
+  }
+  if(NETZ){
+    setzeStatistik(kmImSichtfeld(), !!STRASSEN && KARTE.getZoom() >= NAH_ZOOM,
+      ganzBerlinImBild());
+    if(!STRASSEN){
+      ladenKnopf.textContent = T().strassenKnopf;
+      ladenKnopf.classList.add('sichtbar');
+    }else{
+      ladenKnopf.classList.remove('sichtbar');
+    }
+  }else{
+    setzeStatistik(null, false, ganzBerlinImBild());
+    ladenKnopf.textContent = T().ladenKnopf;
+    ladenKnopf.classList.add('sichtbar');
+  }
+  passeAbstaende();
+}
+
+/* ── Wo Radfahren verboten ist ────────────────────────────────────
+   Das Detailnetz ist das vollständige Kraftfahrstraßennetz, Tunnel und
+   Autobahnen eingeschlossen. Ohne Gegenmaßnahme schickt eine sichere
+   Route durch den Tiergartentunnel. Zwei Filter: die Namensregel greift
+   immer, die gerasterte Liste kommt aus OpenStreetMap. Beide treten
+   zurück, sobald auf dem Abschnitt eine amtliche Radverkehrsanlage
+   verzeichnet ist: dann gehört das Rad dort hin. */
+const NAME_GESPERRT = /tunnel$|^tunnel |autobahn|^A \d+/i;
+let VERBOTEN_IDS = null;
+
+function istGesperrt(e, klasse){
+  if(klasse === 'fahrrad' || klasse === 'gruen' || klasse === 'orange') return false;
+  if(VERBOTEN_IDS && VERBOTEN_IDS.has(e.id)) return true;
+  return NAME_GESPERRT.test(e.name || '');
+}
+
+async function ladeVerboten(){
+  if(VERBOTEN_IDS || !STRASSEN) return;
+  const gespeichert = await dbLies('amt', 'verboten');
+  if(Array.isArray(gespeichert)){ VERBOTEN_IDS = new Set(gespeichert); return; }
+  try{
+    const antwort = await fetch('verboten.json', {cache:'force-cache'});
+    if(!antwort.ok) return;
+    const daten = await antwort.json();
+    if(!Array.isArray(daten.linien) || !daten.linien.length) return;
+    VERBOTEN_IDS = await rasterMatch(daten.linien, 0.5, T().verbotenZuordnung);
+    await dbSchreib('amt', 'verboten', [...VERBOTEN_IDS]);
+    graphVeraltet = true;
+    versteckeStatus();
+  }catch(e){ console.warn('Sperrliste nicht verfügbar:', e); }
+}
+
+/* ── Routing über das amtliche Straßennetz ───────────────────── */
+let graphVeraltet = true;
+let GRAPH = null;
+
+function bauGraph(){
+  const nachbarn = new Map(), koord = new Map();
+  const klasseVon = new Map();
+  if(NETZ) for(const e of NETZ) klasseVon.set(e.id, e.klasse);
+  for(const e of (STRASSEN || [])){
+    if(!e.a || !e.b || !e.linien.length) continue;
+    const linie = e.linien[0];
+    koord.set(e.a, linie[0]);
+    koord.set(e.b, linie[linie.length-1]);
+    const klasse = klasseVon.get(e.id) || 'grau';
+    if(istGesperrt(e, klasse)) continue;   // keine Route, kein Zuschlag
+    const len = e.laenge > 0 ? e.laenge : linienLaenge(linie);
+    const rau = !!(RAU_IDS && RAU_IDS.has(e.id));
+    if(!nachbarn.has(e.a)) nachbarn.set(e.a, []);
+    if(!nachbarn.has(e.b)) nachbarn.set(e.b, []);
+    nachbarn.get(e.a).push({zu:e.b, len, klasse, rau, linie});
+    nachbarn.get(e.b).push({zu:e.a, len, klasse, rau, linie:[...linie].reverse()});
+  }
+  GRAPH = {nachbarn, koord};
+  graphVeraltet = false;
+}
+
+function naechsterKnoten(lngLat){
+  if(!GRAPH) return null;
+  const cosLat = Math.cos(lngLat.lat*Math.PI/180);
+  let bester = null, bestD = Infinity;
+  for(const [id, p] of GRAPH.koord){
+    const dLat = p[1] - lngLat.lat, dLon = (p[0] - lngLat.lng)*cosLat;
+    const d = dLat*dLat + dLon*dLon;
+    if(d < bestD){ bestD = d; bester = id; }
+  }
+  return bestD < (0.009*0.009) ? bester : null;
+}
+
+function faktor(klasse, s, rau){
+  let f;
+  if(klasse === 'fahrrad') f = 1;
+  else if(klasse === 'gruen') f = 1;
+  else if(klasse === 'grau') f = 1.15;     // ruhige Nebenstraße
+  else if(klasse === 'orange') f = 1 + 1.3*s;
+  else f = 1 + 3.2*s;                      // rot: Pflicht, aber nichts gebaut
+  // Belag ist Komfort, nicht Sicherheit: eigener Schalter, eigener Zuschlag.
+  if(rau && belagMeiden) f *= 2.4;
+  return f;
+}
+
+function dijkstra(von, zu, s){
+  const dist = new Map([[von, 0]]);
+  const vorher = new Map(), kante = new Map();
+  const heap = [[0, von]];
+  const runter = i => { for(;;){ let k=i,l=2*i+1,r=2*i+2;
+    if(l<heap.length && heap[l][0]<heap[k][0]) k=l;
+    if(r<heap.length && heap[r][0]<heap[k][0]) k=r;
+    if(k===i) break; [heap[i],heap[k]]=[heap[k],heap[i]]; i=k; } };
+  const hoch = i => { while(i>0){ const e=(i-1)>>1;
+    if(heap[e][0]<=heap[i][0]) break; [heap[i],heap[e]]=[heap[e],heap[i]]; i=e; } };
+  while(heap.length){
+    const [d,k] = heap[0];
+    const letzt = heap.pop();
+    if(heap.length){ heap[0]=letzt; runter(0); }
+    if(d > (dist.get(k) ?? Infinity)) continue;
+    if(k === zu) break;
+    for(const e of (GRAPH.nachbarn.get(k) || [])){
+      const nd = d + e.len * faktor(e.klasse, s, e.rau);
+      if(nd < (dist.get(e.zu) ?? Infinity)){
+        dist.set(e.zu, nd); vorher.set(e.zu, k); kante.set(e.zu, e);
+        heap.push([nd, e.zu]); hoch(heap.length-1);
+      }
+    }
+  }
+  if(!vorher.has(zu) && von !== zu) return null;
+  const km = {fahrrad:0, gruen:0, orange:0, rot:0, grau:0};
+  const stuecke = [];
+  let k = zu;
+  while(k !== von){
+    const e = kante.get(k);
+    km[e.klasse] += e.len;
+    stuecke.push(e.linie);
+    k = vorher.get(k);
+  }
+  stuecke.reverse();
+  const coords = [];
+  for(const st of stuecke) for(const p of st) coords.push(p);
+  return {coords, km};
+}
+
+/* ── Routen-Bedienung ────────────────────────────────────────── */
+let modus = 'keiner';
+let routeA = null, routeB = null, markerA = null, markerB = null;
+const knopfBezirke = document.getElementById('knopfBezirke');
+const knopfRoute = document.getElementById('knopfRoute');
+const knopfMelden = document.getElementById('knopfMelden');
+const routenInfo = document.getElementById('routenInfo');
+const schieber = document.getElementById('schieber');
+
+function abMarker(text, lngLat){
+  const el = document.createElement('div');
+  el.className = 'abMarker';
+  el.textContent = text;
+  return new maplibregl.Marker({element:el}).setLngLat(lngLat).addTo(KARTE);
+}
+function routeLoeschen(){
+  routeA = routeB = null;
+  if(markerA){ markerA.remove(); markerA = null; }
+  if(markerB){ markerB.remove(); markerB = null; }
+  if(karteBereit) KARTE.getSource('route').setData(leer);
+  routenInfo.classList.remove('sichtbar');
+  passeAbstaende();
+}
+function setzeModus(neu){
+  modus = (modus === neu) ? 'keiner' : neu;
+  knopfRoute.setAttribute('aria-pressed', String(modus === 'route'));
+  knopfMelden.setAttribute('aria-pressed', String(modus === 'melden'));
+  knopfBezirke.setAttribute('aria-pressed', String(modus === 'bezirke'));
+  document.getElementById('bezirke').classList.toggle('sichtbar', modus === 'bezirke');
+  panel.classList.toggle('bezirkeOffen', modus === 'bezirke');
+  if(modus === 'bezirke'){ BEZIRKE = BEZIRKE || berechneBezirke(); baueBezirke(); }
+  document.getElementById('kategorien').classList.toggle('sichtbar', modus === 'melden');
+  hierMelden.classList.toggle('sichtbar', modus === 'melden');
+  belagKnopf.classList.toggle('sichtbar', modus === 'route');
+  hierMelden.disabled = !gewaehlteKategorie;
+  if(modus !== 'route') routeLoeschen();
+  if(modus === 'route'){
+    if(!STRASSEN) zeigeStatus(T().routeBrauchtNetz, true);
+    else starteBeiStandort();
+  }
+  if(modus === 'melden'){
+    zeigeStatus(gewaehlteKategorie ? T().meldenOrt : T().meldenKategorie, true);
+  }
+  if(modus === 'keiner') versteckeStatus();
+  passeAbstaende();
+}
+knopfBezirke.addEventListener('click', () => setzeModus('bezirke'));
+knopfRoute.addEventListener('click', () => setzeModus('route'));
+knopfMelden.addEventListener('click', () => setzeModus('melden'));
+
+/* Der Start ist da, wo man steht — das ist beim Radfahren fast immer
+   gemeint. Wer einen anderen Start will, drückt lang auf die Karte. */
+async function starteBeiStandort(){
+  zeigeStatus(T().ortungLaeuft, true);
+  let pos = null;
+  try{ pos = await standort(); }catch(e){}
+  if(modus !== 'route') return;
+  if(!pos){ zeigeStatus(T().routeStart, true); return; }
+  const {latitude:lat, longitude:lon} = pos.coords;
+  if(!(lat > STADT.s && lat < STADT.n && lon > STADT.w && lon < STADT.o)){
+    zeigeStatus(T().routeStart, true);
+    return;
+  }
+  setzeStart({lat, lng:lon}, T().routeStandort);
+}
+
+function setzeStart(lngLat, meldung){
+  if(markerA) markerA.remove();
+  if(markerB){ markerB.remove(); markerB = null; }
+  routeB = null;
+  if(karteBereit) KARTE.getSource('route').setData(leer);
+  routenInfo.classList.remove('sichtbar');
+  routeA = lngLat;
+  markerA = abMarker('A', lngLat);
+  zeigeStatus(meldung, true);
+  passeAbstaende();
+}
+
+const belagKnopf = document.getElementById('belagKnopf');
+let belagMeiden = localStorage.getItem('radzeugnis-belag') === '1';
+
+function zeigeBelagKnopf(){
+  belagKnopf.textContent = belagMeiden ? T().belagAn : T().belagAus;
+  belagKnopf.setAttribute('aria-pressed', String(belagMeiden));
+  if(karteBereit){
+    KARTE.setLayoutProperty('ebene-rau','visibility',
+      belagMeiden && RAU_LINIEN ? 'visible' : 'none');
+  }
+}
+belagKnopf.addEventListener('click', async () => {
+  if(!belagMeiden){
+    belagKnopf.disabled = true;
+    const gut = await ladeRau();
+    belagKnopf.disabled = false;
+    if(!gut) return;
+    belagMeiden = true;
+  }else{
+    belagMeiden = false;
+  }
+  localStorage.setItem('radzeugnis-belag', belagMeiden ? '1' : '0');
+  zeigeBelagKnopf();
+  graphVeraltet = true;
+  berechneRoute();
+});
+
+async function berechneRoute(){
+  if(!routeA || !routeB || !STRASSEN) return;
+  await ladeVerboten();
+  if(graphVeraltet || !GRAPH) bauGraph();
+  const von = naechsterKnoten(routeA), zu = naechsterKnoten(routeB);
+  if(von == null || zu == null){ zeigeStatus(T().routeKeine, true); return; }
+  const erg = dijkstra(von, zu, (+schieber.value)/100);
+  if(!erg){
+    zeigeStatus(T().routeKeine, true);
+    KARTE.getSource('route').setData(leer);
+    routenInfo.classList.remove('sichtbar');
+    return;
+  }
+  versteckeStatus();
+  KARTE.getSource('route').setData({type:'Feature', properties:{},
+    geometry:{type:'LineString', coordinates:erg.coords}});
+  const km = erg.km;
+  const gesamt = (km.fahrrad || 0) + km.gruen + km.orange + km.rot + km.grau;
+  const fmt = v => v.toFixed(1).replace('.', T().dezimal);
+  const punkt = (farbe, wert) =>
+    `<span class="punkt" style="color:${farbe}">●</span>&#8202;${fmt(wert)}`;
+  document.getElementById('routenKm').innerHTML =
+    `<b>${fmt(gesamt)} km</b> &nbsp; ` +
+    punkt(FARBEN.fahrrad, km.fahrrad || 0) + ' &nbsp; ' +
+    punkt(FARBEN.gruen, km.gruen) + ' &nbsp; ' +
+    punkt(FARBEN.grau, km.grau) + ' &nbsp; ' +
+    punkt(FARBEN.orange, km.orange) + ' &nbsp; ' +
+    punkt(FARBEN.rot, km.rot);
+  routenInfo.classList.add('sichtbar');
+  passeAbstaende();
+}
+let schieberTimer = null;
+schieber.addEventListener('input', () => {
+  clearTimeout(schieberTimer);
+  schieberTimer = setTimeout(berechneRoute, 180);
+});
+
+/* ── Meldungen ───────────────────────────────────────────────── */
+let gewaehlteKategorie = null;
+let meldungsMarker = [];
+// Anonyme Gerätekennung: kein Konto, keine Person, nur ein Faden,
+// an dem der Server Unmögliches erkennen kann.
+function geraeteKennung(){
+  let k = localStorage.getItem('radzeugnis-geraet');
+  if(!k){
+    k = (crypto.randomUUID ? crypto.randomUUID()
+         : String(Math.random()).slice(2) + Date.now());
+    localStorage.setItem('radzeugnis-geraet', k);
+  }
+  return k;
+}
+function baueKategorien(){
+  const wrap = document.getElementById('kategorien');
+  wrap.innerHTML = '';
+  for(const kat of Object.keys(KAT_BUCHSTABE)){
+    const b = document.createElement('button');
+    b.innerHTML = `<b>${KAT_BUCHSTABE[kat]}</b>${T().kategorien[kat]}`;
+    b.setAttribute('aria-pressed', String(gewaehlteKategorie === kat));
+    b.addEventListener('click', () => {
+      gewaehlteKategorie = (gewaehlteKategorie === kat) ? null : kat;
+      baueKategorien();
+      hierMelden.disabled = !gewaehlteKategorie;
+      if(modus === 'melden'){
+        zeigeStatus(gewaehlteKategorie ? T().meldenOrt : T().meldenKategorie, true);
+      }
+    });
+    wrap.appendChild(b);
+  }
+}
+async function ladeMeldungen(){
+  try{
+    const antwort = await fetch('/api/meldungen');
+    if(!antwort.ok) return;
+    const daten = await antwort.json();
+    const aktiv = daten.aktiv || [];
+    const chronisch = daten.chronisch || [];
+    for(const m of meldungsMarker) m.remove();
+    meldungsMarker = [];
+    const datum = ts => new Date(ts)
+      .toLocaleDateString(SPRACHE === 'de' ? 'de-DE' : 'en-GB');
+    const zeig = (lngLat, html, ziel, beschriftung) => {
+      const box = document.createElement('div');
+      box.style.cssText = 'font-size:16px;line-height:1.4';
+      box.innerHTML = html;
+      if(modAktiv() && ziel) box.appendChild(modKnopf(beschriftung, ziel));
+      new maplibregl.Popup({closeButton:true, maxWidth:'260px'})
+        .setLngLat(lngLat).setDOMContent(box).addTo(KARTE);
+    };
+    for(const m of aktiv){
+      const el = document.createElement('div');
+      el.className = 'meldMarker';
+      el.textContent = KAT_BUCHSTABE[m.kategorie] || '?';
+      el.addEventListener('click', ev => {
+        ev.stopPropagation();
+        zeig([m.lon, m.lat],
+          `<b>${T().kategorien[m.kategorie] || m.kategorie}</b><br>` +
+          `<span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6672">${datum(m.ts)}</span>`,
+          {id:m.id}, T().modLoeschen);
+      });
+      meldungsMarker.push(
+        new maplibregl.Marker({element:el}).setLngLat([m.lon, m.lat]).addTo(KARTE));
+    }
+    // Chronische Stellen: der Einzelfall vergeht, das Muster bleibt.
+    for(const c of chronisch){
+      const el = document.createElement('div');
+      el.className = 'chronMarker';
+      el.textContent = (KAT_BUCHSTABE[c.kategorie] || '?') + ' ' + c.n;
+      el.addEventListener('click', ev => {
+        ev.stopPropagation();
+        zeig([c.lon, c.lat],
+          `<b>${T().kategorien[c.kategorie] || c.kategorie}</b><br>` +
+          `${T().chronisch(c.n)}<br>` +
+          `<span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6672">${T().seit} ${datum(c.erste)}</span>`,
+          {kategorie:c.kategorie, lat:c.lat, lon:c.lon}, T().modStelle);
+      });
+      meldungsMarker.push(
+        new maplibregl.Marker({element:el}).setLngLat([c.lon, c.lat]).addTo(KARTE));
+    }
+  }catch(e){}
+}
+const hierMelden = document.getElementById('hierMelden');
+
+/* ── Moderation ───────────────────────────────────────────────────
+   Der Schlüssel liegt nur auf diesem Gerät und wird bei jeder
+   Löschung mitgeschickt; geprüft wird er auf dem Server. */
+function modSchluessel(){ return localStorage.getItem('radzeugnis-mod') || ''; }
+function modAktiv(){ return !!modSchluessel(); }
+
+document.getElementById('txtVersion').addEventListener('click', () => {
+  if(modAktiv()){
+    localStorage.removeItem('radzeugnis-mod');
+    zeigeStatus(T().modAus);
+  }else{
+    const eingabe = prompt(T().modFrage);
+    if(eingabe){
+      localStorage.setItem('radzeugnis-mod', eingabe.trim());
+      zeigeStatus(T().modAn);
+    }
+  }
+  document.getElementById('txtVersion').style.color = modAktiv() ? 'var(--rot)' : '';
+  ladeMeldungen();
+});
+
+async function loesche(ziel){
+  try{
+    const antwort = await fetch('/api/meldungen', {
+      method:'DELETE',
+      headers:{'Content-Type':'application/json',
+               'x-radzeugnis-schluessel': modSchluessel()},
+      body:JSON.stringify(ziel)
+    });
+    if(!antwort.ok) throw new Error('HTTP ' + antwort.status);
+    zeigeStatus(T().modWeg);
+    ladeMeldungen();
+  }catch(e){ zeigeStatus(T().modFehler, true); }
+}
+
+function modKnopf(beschriftung, ziel){
+  const b = document.createElement('button');
+  b.textContent = beschriftung;
+  b.style.cssText = "margin-top:9px;font-family:'Barlow Condensed',sans-serif;"
+    + 'font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;'
+    + 'background:#D0342C;color:#EEF0ED;border:none;padding:7px 12px;cursor:pointer;';
+  b.addEventListener('click', () => loesche(ziel));
+  return b;
+}
+
+function standort(){
+  return new Promise((gut, schlecht) => {
+    if(!navigator.geolocation) return schlecht(new Error('ortungFehlt'));
+    navigator.geolocation.getCurrentPosition(
+      p => gut(p),
+      () => schlecht(new Error('ortungFehlt')),
+      {enableHighAccuracy:true, timeout:15000, maximumAge:10000});
+  });
+}
+
+async function meldeHier(){
+  if(!gewaehlteKategorie){ zeigeStatus(T().meldenKategorie, true); return; }
+  hierMelden.disabled = true;
+  zeigeStatus(T().ortungLaeuft, true);
+  let pos;
+  try{ pos = await standort(); }
+  catch(e){
+    zeigeStatus(T().ortungFehlt, true);
+    hierMelden.disabled = false;
+    return;
+  }
+  const {latitude:lat, longitude:lon, accuracy:genau} = pos.coords;
+  if(!(genau <= 200)){
+    zeigeStatus(T().ortungUngenau, true);
+    hierMelden.disabled = false;
+    return;
+  }
+  try{
+    const antwort = await fetch('/api/meldungen', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({lat, lon, genau,
+        kategorie:gewaehlteKategorie, geraet:geraeteKennung()})
+    });
+    const daten = await antwort.json().catch(() => ({}));
+    if(!antwort.ok){
+      const schluessel = {ausserhalb:'ausserhalb', ungenau:'ortungUngenau',
+                          zuSchnell:'zuSchnell'}[daten.fehler];
+      zeigeStatus(schluessel ? T()[schluessel] : T().meldenFehler, true);
+    }else{
+      zeigeStatus(T().meldenDanke);
+      KARTE.easeTo({center:[lon, lat], zoom:Math.max(KARTE.getZoom(), 16)});
+      ladeMeldungen();
+    }
+  }catch(e){ zeigeStatus(T().meldenFehler, true); }
+  hierMelden.disabled = false;
+}
+hierMelden.addEventListener('click', meldeHier);
+
+function behandleKartenTipp(lngLat){
+  if(modus === 'route'){
+    if(!STRASSEN){ zeigeStatus(T().routeBrauchtNetz, true); return; }
+    if(!routeA || (routeA && routeB)){
+      routeLoeschen();
+      routeA = lngLat;
+      markerA = abMarker('A', lngLat);
+      zeigeStatus(T().routeZiel, true);
+    }else{
+      // Start steht (Standort oder gesetzt): der Tipp ist das Ziel.
+      routeB = lngLat;
+      markerB = abMarker('B', lngLat);
+      zeigeStatus(T().routeRechnet, true);
+      setTimeout(berechneRoute, 30);
+    }
+  }else if(modus === 'melden'){
+    zeigeStatus(T().meldenNurVorOrt, true);
+  }
+}
+
+/* ── Begrüßungsblätter ───────────────────────────────────────── */
+const introEl = document.getElementById('intro');
+const introWeiter = document.getElementById('introWeiter');
+const introZurueck = document.getElementById('introZurueck');
+let introSeite = 0;
+
+function farbBlock(){
+  const wrap = document.createElement('div');
+  wrap.className = 'introFarben';
+  const t = T();
+  for(const [klasse, text] of [['fahrrad',t.fahrrad],['gruen',t.gruen],
+                               ['orange',t.orange],['rot',t.rot],['grau',t.grau]]){
+    const z = document.createElement('div');
+    z.className = 'zeile';
+    const f = document.createElement('span');
+    f.className = 'farbe ' + klasse;
+    const b = document.createElement('span');
+    b.className = 'text';
+    b.textContent = text;
+    z.append(f, b);
+    wrap.appendChild(z);
+  }
+  return wrap;
+}
+function zeichneIntro(){
+  const blaetter = INTRO[SPRACHE];
+  const blatt = blaetter[introSeite];
+  const inhalt = document.getElementById('introInhalt');
+  inhalt.innerHTML = '';
+  const h = document.createElement('h2');
+  h.id = 'introTitel';
+  h.textContent = blatt.titel;
+  inhalt.appendChild(h);
+  for(const block of blatt.bloecke){
+    if(block.art === 'farben'){ inhalt.appendChild(farbBlock()); continue; }
+    const p = document.createElement('p');
+    if(block.art === 'betont') p.className = 'betont';
+    p.textContent = block.text;
+    inhalt.appendChild(p);
+  }
+  if(introSeite === blaetter.length - 1 && Object.keys(typTally).length){
+    const p = document.createElement('p');
+    p.className = 'betont';
+    p.style.fontFamily = "'IBM Plex Mono',monospace";
+    p.style.fontSize = '13px';
+    p.style.whiteSpace = 'pre-line';
+    const farbwort = {gruen:'grün', orange:'orange'};
+    p.textContent = Object.entries(typTally)
+      .filter(([,v]) => v && typeof v === 'object')
+      .sort((a,b) => b[1].n - a[1].n).slice(0, 12)
+      .map(([k,v]) => `${k} [${farbwort[v.k] || v.k}]: ${v.n}`).join('\n');
+    inhalt.appendChild(p);
+  }
+  if(introSeite === blaetter.length - 1 && NETZ){
+    if(STAND && STAND.geholt){
+      const p = document.createElement('p');
+      p.style.cssText = "font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--tinte-schwach)";
+      p.textContent = T().standDatum(new Date(STAND.geholt)
+        .toLocaleDateString(SPRACHE === 'de' ? 'de-DE' : 'en-GB'));
+      inhalt.appendChild(p);
+    }
+    const b = document.createElement('button');
+    b.textContent = T().pruefenKnopf;
+    b.style.cssText = "align-self:flex-start;font-family:'Barlow Condensed',sans-serif;"
+      + 'font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;'
+      + 'background:none;border:1.5px solid var(--tinte);color:var(--tinte);'
+      + 'padding:9px 14px;cursor:pointer;';
+    b.addEventListener('click', () => { schliesseIntro(); pruefeStand(false); });
+    inhalt.appendChild(b);
+  }
+
+  // Herkunft und Lizenzen: immer sichtbar, auch vor dem ersten Laden
+  if(introSeite === blaetter.length - 1){
+    const lTitel = document.createElement('h3');
+    lTitel.textContent = T().lizenzTitel;
+    lTitel.style.cssText = "font-family:'Barlow Condensed',sans-serif;"
+      + 'font-weight:600;font-size:19px;letter-spacing:.1em;'
+      + 'text-transform:uppercase;margin-top:4px;';
+    inhalt.appendChild(lTitel);
+
+    const lListe = document.createElement('div');
+    lListe.style.cssText = 'display:flex;flex-direction:column;gap:8px;';
+    for(const [was, wer] of T().lizenzen){
+      const zeile = document.createElement('div');
+      const oben = document.createElement('div');
+      oben.textContent = was;
+      oben.style.cssText = 'font-size:15.5px;line-height:1.35;';
+      const unten = document.createElement('div');
+      unten.textContent = wer;
+      unten.style.cssText = "font-family:'IBM Plex Mono',monospace;"
+        + 'font-size:13px;line-height:1.4;color:var(--tinte-schwach);';
+      zeile.append(oben, unten);
+      lListe.appendChild(zeile);
+    }
+    inhalt.appendChild(lListe);
+    const signatur = document.createElement('p');
+    signatur.textContent = 'Written by Julien and Claude the AI';
+    signatur.style.cssText = "font-family:'IBM Plex Sans',sans-serif;font-style:italic;"
+      + 'font-size:14px;color:var(--tinte-schwach);margin-top:6px;';
+    inhalt.appendChild(signatur);
+  }
+  inhalt.scrollTop = 0;
+  document.getElementById('introBlattNr').textContent =
+    T().blattNr(introSeite + 1, blaetter.length);
+  const punkte = document.getElementById('introPunkte');
+  punkte.innerHTML = '';
+  for(let i = 0; i < blaetter.length; i++){
+    const i2 = document.createElement('i');
+    if(i === introSeite) i2.className = 'an';
+    punkte.appendChild(i2);
+  }
+  introZurueck.hidden = introSeite === 0;
+  introZurueck.textContent = T().zurueck;
+  introWeiter.textContent =
+    introSeite === blaetter.length - 1 ? T().losGehts : T().weiter;
+}
+function zeigeIntro(){ introSeite = 0; introEl.hidden = false; zeichneIntro(); }
+function schliesseIntro(){
+  introEl.hidden = true;
+  try{ localStorage.setItem('radzeugnis-intro', '1'); }catch(e){}
+}
+introWeiter.addEventListener('click', () => {
+  if(introSeite < INTRO[SPRACHE].length - 1){ introSeite++; zeichneIntro(); }
+  else schliesseIntro();
+});
+introZurueck.addEventListener('click', () => {
+  if(introSeite > 0){ introSeite--; zeichneIntro(); }
+});
+introEl.addEventListener('click', e => { if(e.target === introEl) schliesseIntro(); });
+document.getElementById('lnkUeber').addEventListener('click', zeigeIntro);
+
+/* ── Sprache ─────────────────────────────────────────────────── */
+function setzeSprache(neu){
+  SPRACHE = neu;
+  localStorage.setItem('radzeugnis-lang', neu);
+  document.documentElement.lang = neu;
+  const t = T();
+  document.getElementById('txtAmt').textContent = t.amt;
+  document.getElementById('txtFahrrad').textContent = t.fahrrad;
+  document.getElementById('txtGruen').textContent = t.gruen;
+  document.getElementById('txtOrange').textContent = t.orange;
+  document.getElementById('txtRot').textContent = t.rot;
+  document.getElementById('txtFussnote').textContent = t.fussnote;
+  document.getElementById('sprache').textContent = neu === 'de' ? 'DE → EN' : 'EN → DE';
+  document.getElementById('pfeil').textContent =
+    panel.classList.contains('zu') ? t.ausklappen : t.einklappen;
+  rahmenElement.textContent = t.pruefgebiet;
+  knopfBezirke.textContent = t.bezirke;
+  knopfRoute.textContent = t.route;
+  knopfMelden.textContent = t.melden;
+  document.getElementById('txtKurz').textContent = t.kurz;
+  document.getElementById('txtSicher').textContent = t.sicher;
+  document.getElementById('lnkHub').title = t.hub;
+  document.getElementById('lnkKofi').textContent = t.kofi;
+  document.getElementById('lnkUeber').textContent = t.ueber;
+  const vEl = document.getElementById('txtVersion');
+  vEl.textContent = VERSION;
+  vEl.style.cursor = 'pointer';
+  vEl.style.color = modAktiv() ? 'var(--rot)' : '';
+  hierMelden.textContent = t.hierMelden;
+  zeigeBelagKnopf();
+  baueKategorien();
+  if(!introEl.hidden) zeichneIntro();
+  setzeStatistik(letzteKm, letzterGrau, letzterBerlin);
+  if(karteBereit) aktualisiere();
+  passeAbstaende();
+}
+document.getElementById('sprache').addEventListener('click', () =>
+  setzeSprache(SPRACHE === 'de' ? 'en' : 'de'));
+
+/* ── Panel ───────────────────────────────────────────────────── */
+const panel = document.getElementById('zeugnis');
+const kopf = document.getElementById('zeugnisKopf');
+function schaltePanel(){
+  const zu = panel.classList.toggle('zu');
+  document.getElementById('pfeil').textContent = zu ? T().ausklappen : T().einklappen;
+  kopf.setAttribute('aria-expanded', String(!zu));
+  passeAbstaende();
+}
+kopf.addEventListener('click', schaltePanel);
+kopf.addEventListener('keydown', e => {
+  if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); schaltePanel(); }
+});
+
+/* ── Start ───────────────────────────────────────────────────── */
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+let entprellung = null;
+KARTE.on('moveend', () => {
+  clearTimeout(entprellung);
+  entprellung = setTimeout(aktualisiere, 350);
+});
+setzeSprache(SPRACHE);
+try{
+  if(!localStorage.getItem('radzeugnis-intro')) zeigeIntro();
+}catch(e){}
+</script>
+</body>
+</html>

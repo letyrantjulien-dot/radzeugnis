@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Radzeugnis → Radfunk! export</title>
+<style>
+body{font-family:'IBM Plex Mono',monospace; background:#F2F0EB; color:#1B2A38; max-width:44rem; margin:0 auto; padding:28px 20px; font-size:17px; line-height:1.5}
+h1{font-size:24px; letter-spacing:.06em}
+button{font:inherit; padding:14px 20px; border:2px solid #1B2A38; background:#1B2A38; color:#F2F0EB; cursor:pointer; letter-spacing:.06em; text-transform:uppercase}
+button:disabled{opacity:.4}
+#log{white-space:pre-wrap; margin-top:18px; font-size:15px}
+.ok{color:#1F9D55}.bad{color:#D0342C}
+</style>
+</head>
+<body>
+<h1>RADZEUGNIS → RADFUNK! EXPORT</h1>
+<p>This page reads the Berlin network already stored on THIS device by Radzeugnis and packages it as <b>netz-berlin.json</b> for Radfunk!. No connection to gdi.berlin.de needed — the data never leaves your device.</p>
+<p>Must be served from the same address as Radzeugnis (add this file to the Radzeugnis deploy). Open it on a device where Radzeugnis has already loaded Berlin.</p>
+<button id="go">Read &amp; export</button>
+<div id="log"></div>
+<script>
+'use strict';
+const NETZ_VERSION = 5;   // must match radnetz.js in Radfunk!
+const log = (t,c)=>{ const d=document.createElement('div'); if(c) d.className=c; d.textContent=t; document.getElementById('log').appendChild(d); };
+document.getElementById('go').onclick = async ()=>{
+  document.getElementById('go').disabled = true;
+  try{
+    const db = await new Promise((res,rej)=>{
+      const req = indexedDB.open('radzeugnis');   // no version: open as-is, never upgrade
+      req.onsuccess = ()=>res(req.result); req.onerror = ()=>rej(req.error||new Error('DB open failed'));
+    });
+    if(!db.objectStoreNames.contains('amt')) throw new Error("store 'amt' not found — has Radzeugnis loaded Berlin on this device?");
+    const lies = key => new Promise(res=>{ const r=db.transaction('amt').objectStore('amt').get(key);
+      r.onsuccess=()=>res(r.result??null); r.onerror=()=>res(null); });
+    const n = await lies('netz');
+    const s = await lies('strassen');
+    const r = await lies('rau3');
+    const vb = await lies('verboten');
+    if(!n || !Array.isArray(n.netz)) throw new Error("key 'netz' empty — load Berlin in Radzeugnis first");
+    if(!Array.isArray(s)) throw new Error("key 'strassen' empty — load the street network in Radzeugnis first");
+    if(n.v !== NETZ_VERSION) log('note: Radzeugnis data version '+n.v+' ≠ '+NETZ_VERSION+' — exporting anyway; if Radfunk! rejects it, both apps need the same NETZ_VERSION', 'bad');
+    log('netz: '+n.netz.length+' segments', 'ok');
+    log('strassen: '+s.length+' segments', 'ok');
+    log('rau ids: '+((r&&r.ids)?r.ids.length:0), (r&&r.ids)?'ok':'');
+    const out = JSON.stringify({v:NETZ_VERSION, netz:n.netz, strassen:s,
+      rau:(r&&r.ids)||[], verboten:Array.isArray(vb)?vb:[]});
+    log('file size: '+(out.length/1048576).toFixed(1)+' MB');
+    const b = new Blob([out], {type:'application/json'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(b); a.download='netz-berlin.json'; a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 10000);
+    log('netz-berlin.json downloaded. Drop it next to index.html in the RADFUNK deploy folder and redeploy.', 'ok');
+  }catch(e){ log('FAILED: '+(e.message||e), 'bad'); document.getElementById('go').disabled=false; }
+};
+</script>
+</body>
+</html>
